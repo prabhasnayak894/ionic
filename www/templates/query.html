@@ -1,0 +1,59 @@
+<ion-view view-title="Acupressure">
+	<ion-content class="container-bg">
+		<div class="list list-inset info" ng-if="points == ''" style="background-color: #cff3fc;">
+			<p>Start typing the name of the body part which is causing the problem. Something like <i style="font-style: italic; font-weight: bold;">neck, head, ear, etc.</i></p>
+		</div>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="text" readonly="readonly" placeholder="Start searching!" 
+					class="ion-autocomplete" 
+					ion-autocomplete 
+					autocomplete="off" 
+					max-selected-items="1" 
+					ng-model="query" 
+					item-view-value-key="title" 
+					cancel-label="Cancel" 
+					cancel-button-clicked-method="cancelAutoComplete(callback)" 
+					show-select-items-label=false 
+					show-selected-items-label=false 
+					items-clicked-method="showPoints(callback)" 
+					items-method="getQueryResult(query)"/>
+			</label>
+		</div>
+
+		<div class="list list-inset info" ng-if="points != ''" style="background-color: #cff3fc;">
+			<p>Below are the points, highlighted in <font color="#ff00000">red</font>, to be pressed to releive your problem.</p>
+			<p>Tap on the points to get more detailes about it.</p>
+		</div>
+
+		<div style="margin-bottom: 30px;" class="list card" map-highlight ng-if="points != ''" ng-repeat="image in content.points[points.id].images">
+			<div class="item item-divider">
+				<p>{{image.path.replace('.jpg', '').replace('_', ' ').replace('./img/points/', '') | uppercase}}</p>
+			</div>
+			<div class="item item-image">
+				<img class="points-image" src="{{image.path}}" usemap="#points_image_{{$index}}" width="100%" />
+				<map name="points_image_{{$index}}">
+					<area shape="{{coord.type}}" ng-repeat="coord in image.coords track by $index" coords="{{coord.value}}" href="javascript: void(0);" ng-click="showPointDetail(points.id)" title="content.points[points.id].title">
+				</map>
+			</div>
+		</div>
+
+		<script id="my-modal.html" type="text/ng-template">
+			<ion-modal-view>
+				<ion-header-bar>
+					<h1 class="title">{{content.points[point_detail_id].title}}</h1>
+					<a class="button button-icon icon ion-close" ng-click="closeModal()"></a>
+				</ion-header-bar>
+				<ion-content>
+					<div>
+						<div class="item item-text-wrap">
+							<p ng-bind-html="content.points[point_detail_id].description"></p>
+							<p>Associated with: <b style="font-style: italic;">{{content.points[point_detail_id].associated_with.join(', ')}}</b></p>
+						</div>
+					</div>
+				</ion-content>
+			</ion-modal-view>
+		</script>
+	</ion-content>
+</ion-view>

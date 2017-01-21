@@ -1,0 +1,103 @@
+/* Empty. Add your own CSS if you like */
+.title, .menu {
+	text-transform: uppercase;
+}
+.bar.bar-calm.dark {
+	background-color: #066079;
+}
+.info p {
+	font-size: 130%;
+	line-height: 24px;
+	margin-bottom: 20px;
+	color: #666666;
+}
+.item-complex .item-content, .item-radio .item-content {
+	padding: 16px 0px 16px 20px;
+    background-color: #066079;
+    color: #fff;
+    font-weight: bold;
+}
+.menu .scroll-content {
+	background-color: #066079;
+}
+.bar button.button-clear {
+	color: #666666;
+}
+
+.search-wrapper {
+	border-color: #0a9dc7;
+    background-color: #11c1f3;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+.search-wrapper .item-text-wrap h3 {
+	font-size: 130%;
+}
+.search-wrapper .item-text-wrap p {
+	font-size: 105%;
+}
+.search-wrapper .item-text-wrap p, .search-wrapper .item-text-wrap h3 {
+	color: #ffffff;
+}
+
+.ion-autocomplete-container .button.button-calm {
+    margin: 0 0 1px;
+    text-align: left;
+    line-height: 18px;
+    border-radius: 0;
+    padding: 10px;
+    font-weight: bold;
+}
+.button.button-calm p{
+    margin: 10px 0;
+    font-size: 95%;
+    font-weight: normal;
+}
+
+.item-input {
+	padding: 10px 0 12px 16px;
+	border-color: #444444;
+}
+input[type="text"] {
+	font-size: 150%;
+	color: #444444;
+}
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #444444;
+}
+.placeholder-icon:first-child {
+    padding-right: 10px;
+    font-size: 200%;
+    color: #444444;
+}
+.item-input-wrapper {
+    background-color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 0;
+}
+.no-records {
+	text-align: center;
+	font-size: 120%;
+	margin: 20px 0;
+	color: #ff0000;
+}
+
+.container-links {
+	padding: 20px 10%;
+}
+.container-links .button {
+	margin-bottom: 20px;
+	color: #999999;
+}
+
+.container-bg {
+	background-color: #cff3fc;
+}
+.button-links {
+	padding: 25px;
+}
+.button-links .button {
+	margin: 20px 0;
+}
+.button-links .button.button-calm.light {
+	background-color: #55d3f6;
+}
