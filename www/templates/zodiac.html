@@ -1,0 +1,53 @@
+<ion-view view-title="Acupressure">
+  <ion-content delegate-handle="myPageDelegate">
+    <div class="row">
+      <select class="col card" ng-model="sign">
+        <option ng-repeat="(key, value) in zodiacSigns" value="{{key}}">{{key}}</option>
+      </select>
+    </div>
+    <div class="card">
+      <div class="row" style="padding:1em">
+        <div class="col col-20 sign-icon">
+        </div>
+        <div class="col col-80" style="line-height:1">
+          <b>{{sign}}</b></br>
+          <small style="color:#919191">{{zodiacSigns[sign].date}}</small>
+        </div>
+      </div>
+      <div class="row zodiac-image">
+      </div>
+      <div class="row" style="padding:1em">
+        {{zodiacSigns[sign].info}}
+      </div>
+      <div class="row">
+        <button class="button button-block button-calm button-small sign-button"  style="width:30%"  ng-click="gotToBottom('AlimentsDiv')">
+          Aliments
+          </button>
+          <button class="button button-block button-calm button-small" style="width:30%" ng-click="gotToBottom('PointsDiv')">
+  				Points
+  			</button>
+      </div>
+
+    </div>
+    <div class="card" id="AlimentsDiv">
+      <div class="item item-divider">Aliments</div>
+      <div class="item item-text-wrap" ng-bind="zodiacSigns[sign].aliments"></div>
+    </div>
+    <div class=" card" id="PointsDiv">
+      <div class="item item-divider">Pressure Points</div>
+      <div class="" id="images" ng-repeat="p in zodiacSigns[sign].pressurepoints">
+        <div style="margin-bottom: 30px;" class="list card" map-highlight ng-if="points != ''" ng-repeat="image in content.points[p].images">
+          <div class="item item-divider">
+            <p>{{image.path.replace('.jpg', '').replace('_', ' ').replace('./img/points/', '') | uppercase}}</p>
+          </div>
+          <div class="item item-image">
+            <img class="points-image" src="{{image.path}}" usemap="#points_image_{{$index}}" width="100%" />
+            <map name="points_image_{{$index}}">
+              <area shape="{{coord.type}}" ng-repeat="coord in image.coords track by $index" coords="{{coord.value}}" href="javascript: void(0);"  title="content.points[p].title">
+            </map>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

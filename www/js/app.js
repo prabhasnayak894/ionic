@@ -90,6 +90,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-autocomplete'])
         controller: 'FaqsCtrl'
       }
     }
+  })
+
+  .state('app.zodiac', {
+    url: '/zodiacsigns',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/zodiac.html',
+        controller: 'ZodiacCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/links');
