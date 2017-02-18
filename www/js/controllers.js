@@ -1497,7 +1497,8 @@ angular.module('starter.controllers', [])
 
   .controller('ZodiacCtrl', function($scope, $ionicScrollDelegate, $location) {
     console.log('ZodiacCtrl initialized');
-    $scope.sign = "Aries";
+    $scope.sign = 'Aries';
+    $scope.showPoints = false;
     $scope.zodiacSigns = {
       'Aries': {
         'info': 'Stubborn with his views, overenthusiastic',
@@ -2843,7 +2844,11 @@ angular.module('starter.controllers', [])
         }
       }
     };
+    $scope.setSign = function(){
+      $scope.showPoints = false;
+    };
     $scope.gotToBottom = function(page) {
+      $scope.showPoints = true;
       $location.hash(page); //set the location hash
       var handle = $ionicScrollDelegate.$getByHandle('myPageDelegate');
       handle.anchorScroll(true);

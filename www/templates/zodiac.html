@@ -1,7 +1,7 @@
 <ion-view view-title="Acupressure">
   <ion-content delegate-handle="myPageDelegate">
     <div class="row">
-      <select class="col card" ng-model="sign">
+      <select class="col card" ng-model="sign" ng-change="setSign()">
         <option ng-repeat="(key, value) in zodiacSigns" value="{{key}}">{{key}}</option>
       </select>
     </div>
@@ -33,7 +33,7 @@
       <div class="item item-divider">Aliments</div>
       <div class="item item-text-wrap" ng-bind="zodiacSigns[sign].aliments"></div>
     </div>
-    <div class=" card" id="PointsDiv">
+    <div class="card" id="PointsDiv" ng-if="showPoints">
       <div class="item item-divider">Pressure Points</div>
       <div class="" id="images" ng-repeat="p in zodiacSigns[sign].pressurepoints">
         <div style="margin-bottom: 30px;" class="list card" map-highlight ng-if="points != ''" ng-repeat="image in content.points[p].images">
