@@ -1,18 +1,15 @@
-<ion-view view-title="Acupressure">
+<ion-view view-title="Instruments">
 	<ion-content class="container-bg">
-		<ul class="list">
-			<li class="item">
-				<h2 style="text-align: center;">Instruments used in Reflexology</h2>
-			</li>
-		</ul>
-
-		<div class="card" ng-repeat="item in content.instruments" ng-init="item.show = ($index == 0) ? true : false">
-			<div class="item item-divider" ng-click="item.show = !item.show">{{item.title}}</div>
-			<div class="item" ng-show="item.show">
-				<p class="item-text-wrap" ng-bind-html="item.description"></p>
-				<img style="border: 1px solid #ccc; border-radius: 4px; margin-top: 20px;" src="{{item.image}}" width="100%" />
+		<div class="list no-lines item-list" ng-repeat="item in content.instruments" ng-init="item.show = ($index == 0) ? true : false" ng-style="{'marginBottom': ($index == content.instruments.length - 1) ? '60px': 0}"> 
+			<h2 class="hd-content" ng-click="showDiv($index)" ng-class="{'active': current_div == $index}">
+				<span>{{item.title}}</span>
+				<i class="icon {{(current_div == $index) ? 'ion-arrow-up-b' : 'ion-arrow-down-b'}}"></i>
+				<br class="clr" />
+			</h2>
+			<div class="bd-content" ng-show="current_div == $index">
+				<img style="border: 1px solid #ccc; border-radius: 4px; margin-bottom: 20px;" src="{{item.image}}" width="100%" />
+				<p ng-bind-html="item.description"></p>
 			</div>
-			
 		</div>
 	</ion-content>
 </ion-view>

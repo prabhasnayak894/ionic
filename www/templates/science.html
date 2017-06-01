@@ -1,14 +1,12 @@
-<ion-view view-title="Acupressure">
+<ion-view view-title="Science">
 	<ion-content class="container-bg">
-		<ul class="list">
-			<li class="item">
-				<h2 style="text-align: center;">Science of Acupressure</h2>
-			</li>
-		</ul>
-
-		<div class="card" ng-repeat="item in content.science" ng-init="item.show = ($index == 0) ? true : false">
-			<div class="item item-divider" ng-click="item.show = !item.show">{{item.title}}</div>
-			<div class="item item-text-wrap" ng-bind-html="item.description" ng-show="item.show"></div>
+		<div class="list no-lines item-list" ng-repeat="item in content.science" ng-style="{'marginBottom': ($index == content.science.length - 1) ? '60px': 0}">
+			<h2 class="hd-content" ng-click="showDiv($index)" ng-class="{'active': current_div == $index}">
+				<span>{{item.title}}</span>
+				<i class="icon {{(current_div == $index) ? 'ion-arrow-up-b' : 'ion-arrow-down-b'}}"></i>
+				<br class="clr" />
+			</h2>
+			<div class="bd-content" ng-bind-html="item.description" ng-show="current_div == $index"></div>
 		</div>
 	</ion-content>
 </ion-view>

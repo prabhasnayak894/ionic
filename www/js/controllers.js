@@ -1,5 +1,5 @@
 angular.module('starter.controllers', [])
-	.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+	.controller('AppCtrl', function($scope, $ionicModal, $timeout, $cordovaSocialSharing) {
 
 		// With the new view caching in Ionic, Controllers are only called
 		// when they are recreated or on app start, instead of every page change.
@@ -7,35 +7,63 @@ angular.module('starter.controllers', [])
 		// listen for the $ionicView.enter event:
 		//$scope.$on('$ionicView.enter', function(e) {
 		//});
+		$scope.share = function() {
+			$cordovaSocialSharing.share('This app allowed  me to understand Acupressure and how to use it to get immediate relief from my health issues.', 'Acupressure App', null, 'https://play.google.com/store/apps/details?id=com.ionicframework.accupressure953650');
+		};
 	})
 
-	.controller('LinksCtrl', function($scope, $ionicScrollDelegate, $ionicModal, $location){
+	.controller('LinksCtrl', function($scope, $ionicScrollDelegate, $ionicModal, $location, $ionicPush){
 		$scope.content = {
 			"query": {
 				"title": "Search",
-				"description": "You can also search for specific health related problems and get to know its healing points below."
+				"description": "You can search for specific health related problems and get to know its healing points.",
+				"bg-color": "#68d3e3",
+				"icon": "ion-search"
+			},
+			"zodiacsigns": {
+				"title": "Zodiac",
+				"description": "Know common ailments as per your zodiac sign and know its healing points for a healthy life.",
+				"bg-color": "#42c7db",
+				"icon": "ion-person"
 			},
 			"science": {
 				"title": "Science",
-				"description": "Welcome to the world of <b>Acupressure</b> points on hands and feet. Learn the science behind it by clicking below"
+				"description": "Welcome to the world of <b>Acupressure</b> points on hands and feet. Learn the science behind it by clicking below",
+				"bg-color": "#42b0db",
+				"icon": "ion-erlenmeyer-flask"
 			},
 			"features": {
 				"title": "Features",
-				"description": "There are various advantages of <b>Acupressure</b>. Understand the various features and good things about it by clicking below"
+				"description": "There are various advantages of <b>Acupressure</b>. Understand the various features and good things about it by clicking below",
+				"bg-color": "#339cde",
+				"icon": "ion-clipboard"
 			},
 			"instruments": {
 				"title": "Instruments",
-				"description": "Inorder to apply appropriate pressure to your pressure points, you can use any one of the  intruments given in the link below."
+				"description": "Inorder to apply appropriate pressure to your pressure points, you can use any one of the  intruments given in the link below.",
+				"bg-color": "#218ccf",
+				"icon": "ion-settings"
 			},
 			"faqs": {
 				"title": "FAQs",
-				"description": "You can also go through our FAQs to get answers to your queries related to <b>Acupressure"
+				"description": "You can also go through our FAQs to get answers to your queries related to <b>Acupressure",
+				"bg-color": "#0678ba",
+				"icon": "ion-help-circled"
 			}
 		};
 
 		$scope.goToPage = function(link) {
 			$location.path("app/" + link);
 		};
+
+		$scope.$on('cloud:push:notification', function(event, data) {
+			var msg = data.message;
+			alert(msg.title + ': ' + msg.text);
+		});
+
+		var three_perc_div = (3 / window.innerHeight) * 100
+		var height_div = (window.innerHeight - 110) - (three_perc_div * 2)
+		$scope.button_height = (height_div / 3) - 15;
 	})
 
 	.controller('QueryCtrl', function($scope, $ionicScrollDelegate, $ionicModal, $timeout){
@@ -981,7 +1009,7 @@ angular.module('starter.controllers', [])
 					"images": [{
 						"path": "./img/points/left_sole.jpg",
 						"coords": [{
-							"type": "cirlce", 
+							"type": "circle", 
 							"value": "297,478,17"
 						}]
 					}, {
@@ -1347,6 +1375,7 @@ angular.module('starter.controllers', [])
 
 		$scope.showPoints = function(callback) {
 			$scope.points = callback.item;
+			$scope.showSection(0, true);
 		};
 
 		$scope.cancelAutoComplete = function(callback) {
@@ -1370,6 +1399,19 @@ angular.module('starter.controllers', [])
 		};
 		$scope.closeModal = function() {
 			$scope.modal.hide();
+		};
+
+		$scope.current_tab = 0;
+
+		$scope.showSection = function(index, reload) {
+			$timeout(function(){
+				$scope.current_tab = index;
+				$scope.$broadcast('load_image', true);
+
+				if(reload) {
+					$scope.showSection(index, false);
+				}
+			}, 100);
 		};
 	})
 
@@ -1398,6 +1440,12 @@ angular.module('starter.controllers', [])
 				}
 			]
 		};
+
+		$scope.current_div = 0;
+
+		$scope.showDiv = function(index) {
+			$scope.current_div = index;
+		}
 	})
 
 	.controller('FeaturesCtrl', function($scope) {
@@ -1425,6 +1473,12 @@ angular.module('starter.controllers', [])
 				}
 			]
 		};
+
+		$scope.current_div = 0;
+		
+		$scope.showDiv = function(index) {
+			$scope.current_div = index;
+		}
 	})
 
 	.controller('InstrumentsCtrl', function($scope) {
@@ -1456,6 +1510,12 @@ angular.module('starter.controllers', [])
 				}
 			]
 		};
+
+		$scope.current_div = 0;
+		
+		$scope.showDiv = function(index) {
+			$scope.current_div = index;
+		}
 	})
 
 	.controller('FaqsCtrl', function($scope) {
@@ -1493,34 +1553,1470 @@ angular.module('starter.controllers', [])
 				}
 			]
 		};
+
+		$scope.current_div = 0;
+		
+		$scope.showDiv = function(index) {
+			$scope.current_div = index;
+		}
 	})
 
-	.directive('mapHighlight', ['$timeout', function($timeout){
-		return {
-			restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
-			link: function($scope, iElm, iAttrs, controller) {
-				$scope.$watchCollection('points', function(newCollection, oldCollection) {
-					$timeout(function(){
-						$(iElm).find('map').imageMapResize();
-						$(iElm).find('img.points-image').maphilight({
-							'fill': true,
-							'fillColor': 'ff0000',
-							'fillOpacity': 0.8,
-							'stroke': true,
-							'strokeColor': 'ff0000',
-							'strokeOpacity': 0.5,
-							'strokeWidth': 0,
-							'fade': true,
-							'alwaysOn': true,
-							'shadow': true,
-							'shadowRadius': 6,
-							'shadowColor': 'ff0000',
-							'shadowOpacity': 0.8,
-							'shadowPosition': 'outside'
-						});
-					}, 100);
-					
-				}, true);
+	.controller('InfoCtrl', function($scope) {
+		
+	})
+
+  .controller('ZodiacCtrl', function($scope, $ionicModal, $timeout) {
+    $scope.sign = "Aries";
+    $scope.points = '';
+	$scope.point_detail_id = '';
+
+    $scope.zodiacSigns = {
+      'Aries': {
+        'info': 'Stubborn with his views, overenthusiastic',
+        'date':'21 March - 19 April',
+        'aliments': 'Waist and backache, aliments of skin and digestive system',
+        'pressurepoints': ['9', '10', '16', '16a', '28a', '28b']
+      },
+      'Taurus': {
+        'info': 'Hard working, but not awarded adequately',
+        'date':'20 April - 20 May',
+        'aliments': 'Aliments of the ear, common cold, giddiness, acidity',
+        'pressurepoints': ['9', '10', '11', '28a', '28b']
+      },
+      'Gemini': {
+        'info': 'Do not takes things seriously',
+        'date':'21 May - 20 June',
+        'aliments': 'Common cold, pain in joints and arthritis',
+        'pressurepoints': ['9', '10', '27', '28a', '28b']
+      },
+      'Cancer': {
+        'info': 'Emotional, worrying and psychologicaly weak',
+        'date':'21 June - 22 July',
+        'aliments': 'Stomach related aliments intensify after the age of 60',
+        'pressurepoints': ['4', '20', '28a', '28b', '29', '30']
+      },
+      'Leo': {
+        'info': 'Principled, temperamental, long lasting anger, firmness of the mind',
+        'date':'23 July - 22 August',
+        'aliments': 'Aliments associated with digestion, giddiness, acidity, skin diseases such as psoriasis',
+        'pressurepoints': ['20', '28a', '28b', '29', '30', '34', '35']
+      },
+      'Virgo': {
+        'info': 'Talkative and diftrusting others, excessively analytical attitude',
+        'date':'23 August - 22 September',
+        'aliments': 'Common cold and psychological aliments',
+        'pressurepoints': ['4', '9', '10', '21', '27', '31']
+      },
+      'Libra': {
+        'info': 'Politicians by nature',
+        'aliments': 'Aliments of thyroid, throat and digestive system',
+        'date':'23 September - 22 October',
+        'pressurepoints': ['9', '10', '21', '28a', '28b']
+      },
+      'Scorpio': {
+        'info': 'Hurrying things, boldness, stable in difficult situations',
+        'date':'23 October - 21 November',
+        'aliments': 'Pain in the waist and back, aliments of skin and digestive system ',
+        'pressurepoints': ['9', '10', '16', '16a', '28a', '28b']
+      },
+      'Sagittarius': {
+        'info': 'Coward, bashful and emotional by temperament',
+        'date':'22 November - 21 December',
+        'aliments': 'Pain in the back and waist, aliments of skin and digestive system',
+        'pressurepoints': ['9', '10', '16','16a', '28a', '28b']
+      },
+      'Capricorn': {
+        'info': 'Tasteful eaters, lazy and forgetful',
+        'date':'22 December - 19 January',
+        'aliments': 'Aliments caused by infections',
+        'pressurepoints': ['9', '10', '28a', '28b']
+      },
+      'Aquarius': {
+        'info': 'Suspicious nature, over analytical and investigative temperament, reserved(not expressing the feelings)',
+        'date':'20 January - 18 February',
+        'aliments': 'Common cold, obesity, psychological aliments',
+        'pressurepoints': ['9', '10', '21', '27', '31']
+      },
+      'Pisces': {
+        'info': "Keeping things in mind for long time, remaining in one's own shell, stubborness",
+        'date':'19 February - 20 March',
+        'aliments': 'Acidity, addiction in men, aggravation of psychological problems and knee joint pain',
+        'pressurepoints': ['4', '16', '16a', '28a', '28b', '33', '34', '35']
+      }
+    };
+
+    $scope.content = {
+		"points": {
+			"1": {
+				"title": "Little toe",
+				"description": "<p>Little toe is an energy center. When litte toe is pressed, the body gets charged with heat and we immediately obtain energy. It is helpful whenever sombody gets excessively tired or becomes unconsious.</p>",
+				"associated_with": ["Energy center", "Energy", "tired", "Unconsious"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "64, 121, 71, 124, 77, 130, 80, 137, 81, 148, 73, 145, 68, 138, 65, 130"
+					}, {
+						"type": "poly", 
+						"value": "42, 136, 46, 129, 50, 126, 54, 123, 54, 132, 53, 141, 51, 148, 47, 152, 42, 156, 41, 148, 40, 142"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "348,100,357,110,361,122,360,134,350,125,346,112"
+					}, {
+						"type": "poly", 
+						"value": "335,97,324,105,319,116,319,124,330,116,336,107"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "23,143,27,149,27,159,23,168,18,174,18,154"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "370,126,375,138,376,152,369,145,367,134"
+					}]
+				}]
+			},
+			"2": {
+				"title": "The web between the little toe and the fourth toe",
+				"description": "<p>When pressure is applied to this web, the ear remains healthy.</p>",
+				"associated_with": ["Ear", "Ear drums"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "93, 187, 13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "305,161,13"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "79,283,18"
+					}, {
+						"type": "poly", 
+						"value": "48,142,46,156,49,165,57,171,55,155"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "318,257,14"
+					}, {
+						"type": "poly", 
+						"value": "346,126,349,134,348,144,339,152,340,135"
+					}]
+				}]
+			},
+			"3": {
+				"title": "Web between the fourth and third(middle) toe and the fourth toe",
+				"description": "Applying pressure to this web as well as the fourth toe helps maintain the eyes in good health and prevent using spectacles",
+				"associated_with": ["Eye", "Eyesight", "Spectacles", "Sight"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "131, 157, 13"
+					}, {
+						"type": "poly", 
+						"value": "91, 72, 84, 82, 79, 94, 81, 110, 90, 100, 94, 85"
+					}, {
+						"type": "poly", 
+						"value": "103, 70, 104, 81, 109, 91, 121, 101, 118, 83"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "263,132,13"
+					}, {
+						"type": "poly", 
+						"value": "306,49,317,62,320,74,318,85,307,76,303,62"
+					}, {
+						"type": "poly", 
+						"value": "291,47,293,56,290,67,280,75,272,79,277,59"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "214,258,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "184,229,15"
+					}]
+				}]
+			},
+			"4": {
+				"title": "Third toe",
+				"description": "This is a very important toe from the perspective of maintaining the psychological balance. Apply pressure to this toe to get rid of diseases such as blood pressure, diabetes that are associated with mind, and to reduce other psychological ailments such as depression, madness, lust and jealousy. This toe is important for curing any injury and stopping bleeding.",
+				"associated_with": ["Psychological wellbeing", "blood pressure", "diabetes", "stop bleeding", "Mental instability", "Mind", "Depression", "Madness", "Lust", "Jealousy"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "149, 38, 150, 51, 157, 64, 166, 70, 166, 56, 159, 44"
+					}, {
+						"type": "poly", 
+						"value": "135, 40, 127, 52, 124, 67, 125, 78, 136, 65, 139, 54"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "257, 20, 266, 27, 270, 35, 273, 45, 272, 56, 263, 50, 257, 40"
+					}, {
+						"type": "poly", 
+						"value": "244,20,243,35,237,45,227,51,229,34"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "92,53,94,67,91,79,82,87,83,70"
+					}, {
+						"type": "poly", 
+						"value": "115,54,114,70,117,80,124,87,123,70"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "304,49,310,58,313,70,313,76,303,66,301,55"
+					}, {
+						"type": "poly", 
+						"value": "281,50,284,57,281,70,273,78,274,65,276,56"
+					}]
+				}]
+			},
+			"5": {
+				"title": "Web between third and the second toe",
+				"description": "Applying pressure here increases the body resistance. Apply pressure to this point whenever there is any infection.",
+				"associated_with": ["Energy that prevents diseases", "prevent diseases", "infection", "Improve immunity"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "175, 135, 13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "216,114,13"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "142,262,19"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "257,237,15"
+					}]
+				}]
+			},
+			"6": {
+				"title": "Second toe",
+				"description": "This point is associated with neck and nose.",
+				"associated_with": ["Neck", "Nose", "Stiff neck"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "198, 74, 13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "191,55,15"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "163,15,166,29,162,40,154,48,155,31"
+					}, {
+						"type": "poly", 
+						"value": "187,15,195,28,197,43,197,48,186,37,185,22"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "237,17,243,25,246,42,237,35,235,25"
+					}, {
+						"type": "poly", 
+						"value": "215,17,218,26,207,43,208,28"
+					}]
+				}]
+			},
+			"7": {
+				"title": "Second toe",
+				"description": "This point is associated with sinus close to nose.",
+				"associated_with": ["Sinus", "Sinus close to nose", "Sinus headache"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "190, 17, 177, 32, 174, 49, 174, 58, 187, 51, 194, 32"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "201,4,214,12,219,24,220,35,220,39,203,30,200,14"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "240,52,242,65,237,77,228,85,232,62"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "166,46,175,56,177,66,177,74,166,63,163,51"
+					}]
+				}]
+			},
+			"8": {
+				"title": "Second toe",
+				"description": "This point is associated with sinus close to eyes.",
+				"associated_with": ["Sinus", "Sinus close to eyes", "Sinus headache"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "205, 14, 205, 30, 207, 42, 222, 56, 224, 39, 217, 24"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "187,3,188,19,182,33,170,40,171,19"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "263,54,271,68,273,87,261,76,260,59"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "145,48,147,60,144,70,135,76,136,63"
+					}]
+				}]
+			},
+			"9": {
+				"title": "Web between the second toe and the big toe",
+				"description": "This point is associated with throat related problems.",
+				"associated_with": ["Throat", "Soar throat", "Throat itching"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "218, 140, 11"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "170,116,13"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "263,349,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "134,316,15"
+					}]
+				}]
+			},
+			"10": {
+				"title": "Web between the second toe and the big toe",
+				"description": "This point is associated with tonsisls related problems.",
+				"associated_with": ["Tonsil"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "237, 142, 11"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "150,122,13"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "280,355,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "117,325,16"
+					}]
+				}]
+			},
+			"11": {
+				"title": "Big toe",
+				"description": "Big toe is associated with the head. On its inner side, meaning the side of the second toe, there are points associated with temple, ear and mumps.",
+				"associated_with": ["Temple", "Ear", "Mumps", "Head"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "238, 29, 246, 46, 245, 67, 239, 79, 229, 84, 229, 60, 232, 41"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "155,18,147,33,146,46,149,59,161,68,164,42"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "346,231,341,248,327,262,317,266,330,245"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "56,203,73,219,83,235,68,229,59,216"
+					}]
+				}]
+			},
+			"12": {
+				"title": "Big toe",
+				"description": "This point is associated with  muscles of eyeball. It is helpful to those who are squint-eyed.",
+				"associated_with": ["Eye Muscles", "Eye", "Squint eyed", "Eyeball"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "246, 25, 13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "144,16,15"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "354,231,14"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "48,204,14"
+					}]
+				}]
+			},
+			"13": {
+				"title": "Big toe",
+				"description": "The outer side of the big toe has points associated with curvical spondylosis.",
+				"associated_with": ["Curvical spondylosis", "spondylosis", "Curvical"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "287, 11, 297, 30, 303, 54, 304, 86, 298, 109, 293, 122, 304, 127, 313, 97, 317, 65, 312, 41, 298, 17"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "106,7,94,37,89,60,92,89,97,107,85,111,79,83,77,58,85,30"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "376,233,365,250,356,272,350,295,352,310,356,313,368,275,379,246"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "26,204,35,215,45,239,48,265,45,277,40,283,32,243,24,219"
+					}]
+				}]
+			},
+			"14": {
+				"title": "Big toe",
+				"description": "This point is associated with pineal and pitutary glands. In ailments such as insomnia, pain in the neck, apply pressure to this point.",
+				"associated_with": ["Pineal gland", "Pitutary glands", "sleep", "Pineal", "Pitutary", "Insomnia", "Neck"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "302, 59, 316, 57, 315, 86, 303, 86"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "77,48,89,48,89,75,76,74"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "361,257,372,262,362,291,351,286"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "40,227,47,255,35,259,28,231"
+					}]
+				}]
+			},
+			"15": {
+				"title": "Big toe",
+				"description": "The root of the big toe(where it joins the feet) is also associated with neck",
+				"associated_with": ["Joints of the neck", "neck"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "267, 129, 13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "121,115,14"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "310,352,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "84,321,18"
+					}]
+				}]
+			},
+			"16": {
+				"title": "Mound between the second and the third toe",
+				"description": "This point is associated with lungs and thymus glands. This point is helpful in all ailments of children upto 12 years. This point is termed as God's point.",
+				"associated_with": ["thymus glands", "Lungs", "thymus"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "176, 240, 11"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "215,218,16"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "214,333,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "182,304,17"
+					}]
+				}]
+			},
+			"16a": {
+				"title": "Mound between the second and the third toe",
+				"description": "This point is associated with pitta related ailment so also in dry cough.",
+				"associated_with": ["Pitta"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "176, 258, 12"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "214,239,16"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "188,359,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "208,331,16"
+					}]
+				}]
+			},
+			"17": {
+				"title": "Below fifth toe",
+				"description": "This point is associated with outer portion of the shoulder.",
+				"associated_with": ["Outer portion of the shoulder", "shoulder"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "52, 211, 57, 215, 61, 224, 64, 238, 64, 258, 62, 275, 56, 283, 45, 285, 45, 259, 46, 238"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "350,187,342,196,338,231,344,255,351,264,359,265,359,219"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "28,336,35,343,44,365,44,388,39,407"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "370,311,367,352,364,380,357,367,357,336,361,317"
+					}]
+				}]
+			},
+			"18": {
+				"title": "Below fifth toe",
+				"description": "This point is associated with the inner portion of the shoulder.",
+				"associated_with": ["Inner portion of the shoulder", "shoulder"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "300, 160, 303, 179, 306, 210, 304, 240, 298, 266, 290, 285, 284, 279, 282, 248, 286, 200, 289, 178"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "87,142,96,154,101,186,102,222,100,255,93,269,80,231,79,188,85,157"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "339,372,329,406,323,420,314,435,316,404,327,382"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "54,339,69,358,77,385,77,405,75,409,66,391,57,355"
+					}]
+				}]
+			},
+			"19": {
+				"title": "Shoulder blade",
+				"description": "This point is associated with scapula.",
+				"associated_with": ["Shoulder blade", "Scapula", "Shoulder"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "220, 156, 214, 184, 213, 197, 214, 226, 216, 238, 218, 253, 217, 252, 212, 183"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "168,134,177,167,177,197,170,233,176,204,177,172"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "181,386,171,423,167,451,169,495,166,456,172,416"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "214,356,223,379,228,406,231,444,229,416,225,385"
+					}]
+				}]
+			},
+			"20": {
+				"title": "Point 20",
+				"description": "This point is associated with stomach.",
+				"associated_with": ["Stomach"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "256, 311, 26"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "121,293,28"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "248,386,13"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "146,358,14"
+					}]
+				}]
+			},
+			"21": {
+				"title": "point 21",
+				"description": "This point is associated with thyroid glands.",
+				"associated_with": ["Thyroid glands", "Thyroid"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "227, 283, 15"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "157,265,16"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "198,422,16"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "196,397,18"
+					}]
+				}]
+			},
+			"22": {
+				"title": "Point 22",
+				"description": "This point is associated with kidney.",
+				"associated_with": ["Kidney"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "174, 285, 15"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "215,266,17"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "166,475,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "229,456,16"
+					}]
+				}]
+			},
+			"23a": {
+				"title": "Point 23A",
+				"description": "This point is associated with liver(On the right palm).",
+				"associated_with": ["Liver(On the right palm)", "Liver"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "91, 285, 19"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "85,392,19"
+					}]
+				}]
+			},
+			"23b": {
+				"title": "Point 23B",
+				"description": "This point is associated with heart(On the left palm).",
+				"associated_with": ["Heart(On the left palm)", "Heart"],
+				"images": [{
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "310,264,15"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "316,365,18"
+					}]
+				}]
+			},
+			"24": {
+				"title": "24",
+				"description": "This point is associated with pancreas.",
+				"associated_with": ["Pancreas"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "102,322,15"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "296,306,17"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "204,368,16"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "192,342,18"
+					}]
+				}]
+			},
+			"25": {
+				"title": "Point 25",
+				"description": "This point is the energy center of the body. It can be compared with a torage battery. For this equipment to function properly, the battery has to be charged adequately, similar for the body to function properly, this energy center has to be in good condition.",
+				"associated_with": ["Energy center", "Energy"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "101,397,13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "298,389,15"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "117,432,18"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "282,403,19"
+					}]
+				}]
+			},
+			"26": {
+				"title": "Point 26",
+				"description": "This point is associated with knees and veins of the legs.",
+				"associated_with": ["Knees", "Veins of legs"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "130,406,14"
+					}, {
+						"type": "circle", 
+						"value": "175,406,17"
+					}, {
+						"type": "circle", 
+						"value": "229,407,16"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "152,398,19"
+					}, {
+						"type": "circle", 
+						"value": "211,400,20"
+					}, {
+						"type": "circle", 
+						"value": "263,400,20"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "79,313,17"
+					}, {
+						"type": "circle", 
+						"value": "139,297,18"
+					}, {
+						"type": "circle", 
+						"value": "211,290,15"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "189,262,16"
+					}, {
+						"type": "circle", 
+						"value": "256,273,16"
+					}, {
+						"type": "circle", 
+						"value": "319,287,17"
+					}]
+				}]
+			},
+			"27": {
+				"title": "Point 27",
+				"description": "This point is associated with adrenal glands.",
+				"associated_with": ["Adrenal glands", "Adrenal"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "249, 380, 14"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "130, 368, 15"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "200,233,15"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "200,233,15"
+					}]
+				}]
+			},
+			"28a": {
+				"title": "Point 28A",
+				"description": "This point is associated with gall bladder(On the right palm).",
+				"associated_with": ["Gall bladder(On the right palm)", "Gall bladder"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "102, 477, 15"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "89,471,18"
+					}]
+				}]
+			},
+			"28b": {
+				"title": "Point 28B",
+				"description": "This point is associated with Spleen(On the left palm).",
+				"associated_with": ["Spleen(On the left palm)", "Spleen"],
+				"images": [{
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "297,478,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "309,449,17"
+					}]
+				}]
+			},
+			"29": {
+				"title": "Point 29",
+				"description": "This point is associated with large intestines.",
+				"associated_with": ["Large intestines"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "174,515,16"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "208,525,29"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "257,449,16"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "133,425,16"
+					}]
+				}]
+			},
+			"30": {
+				"title": "Point 30",
+				"description": "This point is associated with small intestines.",
+				"associated_with": ["Small intestines"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "232,516,13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "149,526,22"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "271,420,16"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "121,393,16"
+					}]
+				}]
+			},
+			"31": {
+				"title": "Point 31",
+				"description": "This point is associated with waist.",
+				"associated_with": ["Waist"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "254,515,13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "118,524,21"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "250,484,14"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "140,462,18"
+					}]
+				}]
+			},
+			"32": {
+				"title": "Point 32",
+				"description": "This point is associated with knee, ankle bone and outer side of the waist.",
+				"associated_with": ["Outer side of the waist", "Knee", "Ankle bone", "Ankle", "waist"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "78,523,95,547,106,577,109,612,110,633,106,650,88,625,79,598,76,564"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "328,538,309,568,296,608,291,650,296,701,323,659,332,612,330,570"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "54,480,63,485,72,498,79,517,80,528,76,539"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "348,462,341,490,336,502,327,525,322,512,327,488,335,471"
+					}]
+				}]
+			},
+			"33": {
+				"title": "Point 33",
+				"description": "This point is associated with urinary track, waist, ankle bone and inner side of the knee.",
+				"associated_with": ["Urinary", "Urinary track", "Waist", "Inner side of the knee", "knee", "Ankle bone", "Ankle"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "257,520,238,548,231,580,227,616,234,652,252,621,258,579,259,537"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "117,530,131,548,147,597,149,637,143,701,123,668,115,623"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "249,536,250,525,257,509,268,498,279,491,284,491,260,525,255,528"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "104,468,123,480,136,499,140,513,139,521,130,508"
+					}]
+				}]
+			},
+			"34": {
+				"title": "Point 34",
+				"description": "This point is associated with cancer, infection and bleeding.",
+				"associated_with": ["Cancer", "Infection", "Bleeding"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "229,651,13"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "145,693,14"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "178,516,16"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "215,499,19"
+					}]
+				}]
+			},
+			"35": {
+				"title": "Point 35",
+				"description": "This point is associated with cancer, anus diseases and piles",
+				"associated_with": ["Cancer", "Anus diseases", "Anus", "Piles"],
+				"images": [{
+					"path": "./img/points/right_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "109,654,138,644,169,642,192,644,208,647,229,656,203,675,176,680,124,666,123,666"
+					}]
+				}, {
+					"path": "./img/points/left_sole.jpg",
+					"coords": [{
+						"type": "poly", 
+						"value": "291,704,256,692,207,686,171,692,144,703,165,721,192,735,217,738,250,734,279,718"
+					}]
+				}, {
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "178,516,16"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "215,499,19"
+					}]
+				}]
+			},
+			"36": {
+				"title": "Point 36",
+				"description": "This point is associated with testes and ovaries.",
+				"associated_with": ["Testes", "Ovaries"],
+				"images": [{
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "92,586,18"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "310,583,18"
+					}]
+				}]
+			},
+			"37": {
+				"title": "Point 37",
+				"description": "This point is associated with prostrate gland.",
+				"associated_with": ["Prostrate gland", "Prostrate"],
+				"images": [{
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "235,550,15"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "153,539,14"
+					}]
+				}]
+			},
+			"38": {
+				"title": "Point 38",
+				"description": "This point is associated with uterus.",
+				"associated_with": ["Uterus"],
+				"images": [{
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "232,573,15"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "153,565,13"
+					}]
+				}]
+			},
+			"39": {
+				"title": "Point 39",
+				"description": "This point is associated with penis.",
+				"associated_with": ["Penis"],
+				"images": [{
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "234,597,15"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "152,590,13"
+					}]
+				}]
+			},
+			"40": {
+				"title": "Point 40",
+				"description": "This point is associated with urinary track.",
+				"associated_with": ["Urinary track", "Urinary"],
+				"images": [{
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "233,618,17"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "153,616,15"
+					}]
+				}]
+			},
+			"41": {
+				"title": "Point 41",
+				"description": "This point is associated with vata.",
+				"associated_with": ["Vata"],
+				"images": [{
+					"path": "./img/points/right_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "237, 510, 13"
+					}]
+				}, {
+					"path": "./img/points/left_palm.jpg",
+					"coords": [{
+						"type": "circle", 
+						"value": "153,493,14"
+					}]
+				}]
 			}
+		}
+	};
+
+    $scope.showPoints = function(point) {
+		$scope.points = {
+			"id": point
 		};
-	}]);;
+		$scope.showSection(0, true);
+	};
+
+	$scope.showPointDetail = function(point_id) {
+		$scope.point_detail_id = point_id;
+		$scope.modal.show();		
+	};
+
+	$ionicModal.fromTemplateUrl('my-modal-zodiac.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function(modal) {
+		$scope.modal = modal;
+	});
+	$scope.openModal = function() {
+		$scope.modal.show();
+	};
+	$scope.closeModal = function() {
+		$scope.modal.hide();
+	};
+
+	$scope.current_tab = 0;
+
+	$scope.showSection = function(index, reload) {
+		$timeout(function(){
+			$scope.current_tab = index;
+			$scope.$broadcast('load_image_zodiac', true);
+
+			if(reload) {
+				$scope.showSection(index, false);
+			}
+		}, 100);
+	};
+
+	$scope.resetPage = function() {
+		$scope.points = '';
+	};
+
+  })
+
+  .directive('mapHighlight', ['$timeout', function($timeout) {
+    return {
+      restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+      link: function($scope, iElm, iAttrs, controller) {
+        $scope.$on('load_image', function() {
+          $(iElm).find('map').imageMapResize();
+          $timeout(function(){
+          	$(iElm).find('img.points-image').maphilight({
+              'fill': true,
+              'fillColor': 'ff0000',
+              'fillOpacity': 0.8,
+              'stroke': true,
+              'strokeColor': 'ff0000',
+              'strokeOpacity': 0.5,
+              'strokeWidth': 0,
+              'fade': true,
+              'alwaysOn': true,
+              'shadow': true,
+              'shadowRadius': 6,
+              'shadowColor': 'ff0000',
+              'shadowOpacity': 0.8,
+              'shadowPosition': 'outside'
+            });
+          }, 100);
+            
+
+        }, true);
+      }
+    };
+  }])
+  .directive('mapHighlightZodiac', ['$timeout', function($timeout) {
+    return {
+      restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+      link: function($scope, iElm, iAttrs, controller) {
+        $scope.$on('load_image_zodiac', function() {
+          $(iElm).find('map').imageMapResize();
+          $timeout(function(){
+          	$(iElm).find('img.points-image').maphilight({
+              'fill': true,
+              'fillColor': 'ff0000',
+              'fillOpacity': 0.8,
+              'stroke': true,
+              'strokeColor': 'ff0000',
+              'strokeOpacity': 0.5,
+              'strokeWidth': 0,
+              'fade': true,
+              'alwaysOn': true,
+              'shadow': true,
+              'shadowRadius': 6,
+              'shadowColor': 'ff0000',
+              'shadowOpacity': 0.8,
+              'shadowPosition': 'outside'
+            });
+          }, 100);
+            
+
+        }, true);
+      }
+    };
+  }]);

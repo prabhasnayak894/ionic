@@ -1,0 +1,60 @@
+<ion-view view-title="Zodiac">
+  <ion-content class="container-bg padding zodiac-content-wrapper">
+    <label class="item item-input item-select">
+      <div class="input-label">
+        Select your Zodiac
+      </div>
+      <select ng-model="sign" ng-change="resetPage()" style="text-align: left;">
+        <option ng-repeat="(key, value) in zodiacSigns" value="{{key}}">{{key}}</option>
+      </select>
+    </label>
+    
+    <h3>
+      {{sign}}
+      <small style="color:#919191; font-style: italic;">{{zodiacSigns[sign].date}}</small>
+    </h3>
+
+    <div>
+      <p><span class="bold">Temperament:</span> {{zodiacSigns[sign].info}}</p>
+      <p><span class="bold">Aliments:</span> <span ng-bind="zodiacSigns[sign].aliments"></span></p>
+      <p>
+        <span class="bold">Points for a healthy life:</span>
+      </p>
+      <a ng-repeat="point in zodiacSigns[sign].pressurepoints" style="margin: 0 5px 20px 0" class="button button-calm button-outline {{(points.id == point) ? 'active' : ''}}" href="javascript: void(0);" ng-click="showPoints(point)" >{{point}}</a>
+      <p ng-show="points != ''" >Tap on the points to get more detailes about it.</p>
+    </div>
+
+    <div class="tabs-striped tabs-top tabs-background-stable" ng-show="points != ''" style="position: relative; height: 49px; margin-top: 20px;">
+      <div class="tabs" style="top: 0;">
+        <a class="tab-item" ng-repeat="image in content.points[points.id].images" ng-class="{'active': current_tab == $index}" ng-click="showSection($index, true)">{{image.path.replace('.jpg', '').replace('_', ' ').replace('./img/points/', '') | uppercase}}</a>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 70px;" map-highlight-zodiac ng-show="points != '' && current_tab == $index" ng-repeat="image in content.points[points.id].images">
+      <div class="item item-image">
+        <img class="points-image" src="{{image.path}}" usemap="#points_image_{{$index}}" width="100%" />
+        <map name="points_image_{{$index}}">
+          <area shape="{{coord.type}}" ng-repeat="coord in image.coords track by $index" coords="{{coord.value}}" href="javascript: void(0);" ng-click="showPointDetail(points.id)" title="content.points[points.id].title">
+        </map>
+      </div>
+    </div>
+
+    <script id="my-modal-zodiac.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="custom-nav">
+          <h1 class="title">Point details</h1>
+          <a class="button button-icon icon ion-close" ng-click="closeModal()"></a>
+        </ion-header-bar>
+        <ion-content class="container-bg">
+          <div>
+            <div class="item item-text-wrap">
+              <h2>{{content.points[point_detail_id].title}}</h2>
+              <p ng-bind-html="content.points[point_detail_id].description"></p>
+              <p style="font-size: 1.4rem; line-height: 1.8rem;">Associated with: <b style="font-style: italic;">{{content.points[point_detail_id].associated_with.join(', ')}}</b></p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+  </ion-content>
+</ion-view>

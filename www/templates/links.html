@@ -1,9 +1,11 @@
 <ion-view view-title="Acupressure">
 	<ion-content class="container-bg">
 		<div class="content padding button-links">
-			<button class="button button-block button-calm button-large" ng-click="goToPage(key)" ng-repeat="(key, item) in content">
-				{{item.title}}
+			<button class="button button-large {{($index%2 == 0) ? 'even' : 'odd'}}" ng-style="{'backgroundColor': item['bg-color'], 'height': button_height + 'px'}" ng-click="goToPage(key)" ng-repeat="(key, item) in content">
+				<i class="icon {{item.icon}}"></i>
+				<h3>{{item.title}}</h3>
 			</button>
+			<br class="clr" />
 		</div>
 	</ion-content>
 </ion-view>

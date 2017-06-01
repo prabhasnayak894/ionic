@@ -4,13 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ion-autocomplete'])
+angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'ion-autocomplete', 'ionic.cloud'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicPush) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
 
@@ -19,10 +19,45 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-autocomplete'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    /*var push = new Ionic.Push({
+      "debug": true
+    });
+ 
+    push.register(function(token) {
+      console.log("My Device token:",token.token);
+      push.saveToken(token);  // persist the token in the Ionic Platform
+    });*/
+
+    /*$ionicPush.register().then(function(t) {
+        alert('Token start:', t.token);
+        return $ionicPush.saveToken(t);
+      }).then(function(t) {
+        alert('Token saved:', t.token);
+      }, function(error){
+        alert(error)
+      });*/
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicCloudProvider) {
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "42ff4747"
+    },
+    "push": {
+      "sender_id": "821852756736",
+      "pluginConfig": {
+        "ios": {
+          "badge": true,
+          "sound": true
+        },
+        "android": {
+          "iconColor": "#343434"
+        }
+      }
+    }
+  });
   $stateProvider
 
   .state('app', {
@@ -43,6 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-autocomplete'])
   })
 
   .state('app.query', {
+    cache: false,
     url: '/query',
     views: {
       'menuContent': {
@@ -88,6 +124,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ion-autocomplete'])
       'menuContent': {
         templateUrl: 'templates/faqs.html',
         controller: 'FaqsCtrl'
+      }
+    }
+  })
+
+  .state('app.info', {
+    url: '/info',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/info.html',
+        controller: 'InfoCtrl'
+      }
+    }
+  })
+
+  .state('app.zodiac', {
+    cache: false,
+    url: '/zodiacsigns',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/zodiac.html',
+        controller: 'ZodiacCtrl'
       }
     }
   });
