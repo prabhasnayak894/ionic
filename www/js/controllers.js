@@ -66,7 +66,7 @@ angular.module('starter.controllers', [])
 		$scope.button_height = (height_div / 3) - 15;
 	})
 
-	.controller('QueryCtrl', function($scope, $ionicScrollDelegate, $ionicModal, $timeout){
+	.controller('QueryCtrl', function($scope, $ionicScrollDelegate, $ionicModal, $timeout, $location){
 		$scope.points = '';
 		$scope.point_detail_id = '';
 
@@ -835,7 +835,7 @@ angular.module('starter.controllers', [])
 					}, {
 						"path": "./img/points/left_palm.jpg",
 						"coords": [{
-							"type": "poly", 
+							"type": "circle", 
 							"value": "316,365,18"
 						}]
 					}]
@@ -1341,6 +1341,53 @@ angular.module('starter.controllers', [])
 			}
 		};
 
+		$scope.common_ailments = [{
+			"title": "Low energy",
+			"id": "1"
+		}, {
+			"title": "Diabetes",
+			"id": "4"
+		}, {
+			"title": "Blood pressure",
+			"id": "4"
+		}, {
+			"title": "Infection",
+			"id": "5"
+		}, {
+			"title": "Sinus",
+			"id": "7"
+		}, {
+			"title": "Throat",
+			"id": "9"
+		}, {
+			"title": "Tonsils",
+			"id": "10"
+		}, {
+			"title": "Pitta",
+			"id": "16a"
+		}, {
+			"title": "Stomach",
+			"id": "20"
+		}, {
+			"title": "Pitta",
+			"id": "16a"
+		}, {
+			"title": "Vata",
+			"id": "41"
+		}, {
+			"title": "Thyroid",
+			"id": "21"
+		}, {
+			"title": "Kidney",
+			"id": "22"
+		}, {
+			"title": "Liver",
+			"id": "23a"
+		}, {
+			"title": "Heart",
+			"id": "23b"
+		}]
+
 		$scope.getQueryResult = function(query) {
 			if (query.trim() == '') {
 				return false;
@@ -1375,12 +1422,23 @@ angular.module('starter.controllers', [])
 
 		$scope.showPoints = function(callback) {
 			$scope.points = callback.item;
+			$location.hash('tab_head_query');
+			$ionicScrollDelegate.anchorScroll();
 			$scope.showSection(0, true);
 		};
 
 		$scope.cancelAutoComplete = function(callback) {
 			$scope.points = '';
 			$scope.query = '';
+		};
+
+		$scope.showCommonPoints = function(point) {
+			$scope.points = {
+				"id": point.id
+			};
+			$location.hash('tab_head_query');
+			$ionicScrollDelegate.anchorScroll();
+			$scope.showSection(0, true);
 		};
 
 		$scope.showPointDetail = function(point_id) {
@@ -1565,7 +1623,7 @@ angular.module('starter.controllers', [])
 		
 	})
 
-  .controller('ZodiacCtrl', function($scope, $ionicModal, $timeout) {
+  .controller('ZodiacCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location) {
     $scope.sign = "Aries";
     $scope.points = '';
 	$scope.point_detail_id = '';
@@ -2410,7 +2468,7 @@ angular.module('starter.controllers', [])
 				}, {
 					"path": "./img/points/left_palm.jpg",
 					"coords": [{
-						"type": "poly", 
+						"type": "circle", 
 						"value": "316,365,18"
 					}]
 				}]
@@ -2920,6 +2978,8 @@ angular.module('starter.controllers', [])
 		$scope.points = {
 			"id": point
 		};
+		$location.hash('tab_head_zodiac');
+		$ionicScrollDelegate.anchorScroll();
 		$scope.showSection(0, true);
 	};
 
@@ -2965,57 +3025,61 @@ angular.module('starter.controllers', [])
       restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
       link: function($scope, iElm, iAttrs, controller) {
         $scope.$on('load_image', function() {
-          $(iElm).find('map').imageMapResize();
-          $timeout(function(){
-          	$(iElm).find('img.points-image').maphilight({
-              'fill': true,
-              'fillColor': 'ff0000',
-              'fillOpacity': 0.8,
-              'stroke': true,
-              'strokeColor': 'ff0000',
-              'strokeOpacity': 0.5,
-              'strokeWidth': 0,
-              'fade': true,
-              'alwaysOn': true,
-              'shadow': true,
-              'shadowRadius': 6,
-              'shadowColor': 'ff0000',
-              'shadowOpacity': 0.8,
-              'shadowPosition': 'outside'
-            });
-          }, 100);
-            
-
+			$(iElm).css('visibility', 'hidden');
+			$timeout(function(){
+				$(iElm).find('map').imageMapResize();
+				$(iElm).find('img.points-image').maphilight({
+					'fill': true,
+					'fillColor': 'ff0000',
+					'fillOpacity': 0.8,
+					'stroke': true,
+					'strokeColor': 'ff0000',
+					'strokeOpacity': 0.5,
+					'strokeWidth': 0,
+					'fade': true,
+					'alwaysOn': true,
+					'shadow': true,
+					'shadowRadius': 6,
+					'shadowColor': 'ff0000',
+					'shadowOpacity': 0.8,
+					'shadowPosition': 'outside'
+				});
+			}, 100);
+            $timeout(function(){
+            	$(iElm).css('visibility', 'visible');
+            }, 400);
         }, true);
       }
     };
   }])
   .directive('mapHighlightZodiac', ['$timeout', function($timeout) {
     return {
-      restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+      restrict: 'A',
       link: function($scope, iElm, iAttrs, controller) {
         $scope.$on('load_image_zodiac', function() {
-          $(iElm).find('map').imageMapResize();
-          $timeout(function(){
-          	$(iElm).find('img.points-image').maphilight({
-              'fill': true,
-              'fillColor': 'ff0000',
-              'fillOpacity': 0.8,
-              'stroke': true,
-              'strokeColor': 'ff0000',
-              'strokeOpacity': 0.5,
-              'strokeWidth': 0,
-              'fade': true,
-              'alwaysOn': true,
-              'shadow': true,
-              'shadowRadius': 6,
-              'shadowColor': 'ff0000',
-              'shadowOpacity': 0.8,
-              'shadowPosition': 'outside'
-            });
-          }, 100);
-            
-
+        	$(iElm).css('visibility', 'hidden');
+			$timeout(function(){
+				$(iElm).find('map').imageMapResize();
+				$(iElm).find('img.points-image').maphilight({
+					'fill': true,
+					'fillColor': 'ff0000',
+					'fillOpacity': 0.8,
+					'stroke': true,
+					'strokeColor': 'ff0000',
+					'strokeOpacity': 0.5,
+					'strokeWidth': 0,
+					'fade': true,
+					'alwaysOn': true,
+					'shadow': true,
+					'shadowRadius': 6,
+					'shadowColor': 'ff0000',
+					'shadowOpacity': 0.8,
+					'shadowPosition': 'outside'
+				});
+			}, 100);
+            $timeout(function(){
+            	$(iElm).css('visibility', 'visible');
+            }, 400);
         }, true);
       }
     };

@@ -21,10 +21,10 @@
         <span class="bold">Points for a healthy life:</span>
       </p>
       <a ng-repeat="point in zodiacSigns[sign].pressurepoints" style="margin: 0 5px 20px 0" class="button button-calm button-outline {{(points.id == point) ? 'active' : ''}}" href="javascript: void(0);" ng-click="showPoints(point)" >{{point}}</a>
-      <p ng-show="points != ''" >Tap on the points to get more detailes about it.</p>
+      <p ng-show="points != ''" >Tap on the points to get more details about it.</p>
     </div>
 
-    <div class="tabs-striped tabs-top tabs-background-stable" ng-show="points != ''" style="position: relative; height: 49px; margin-top: 20px;">
+    <div id="tab_head_zodiac" class="tabs-striped tabs-top tabs-background-stable" ng-show="points != ''" style="position: relative; height: 49px; margin-top: 20px;">
       <div class="tabs" style="top: 0;">
         <a class="tab-item" ng-repeat="image in content.points[points.id].images" ng-class="{'active': current_tab == $index}" ng-click="showSection($index, true)">{{image.path.replace('.jpg', '').replace('_', ' ').replace('./img/points/', '') | uppercase}}</a>
       </div>
