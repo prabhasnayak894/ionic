@@ -1,0 +1,28 @@
+{
+	"instruments": [
+		{
+			"id": 1,
+			"title": "Jimmy",
+			"description": "<p>This instrument is in a shape of a writing pen. It has two sections - one with circular rings and other with pyramid-shaped spikes. Those who cannot sustain the pressure of the spiked portion should be treated with the ring section. if an individual point has to be pressed, use the small or the big section of the Jimmy. To treat the fingers and toes, use the spiked section of the Jimmy.</p>",
+			"image": "img/instruments/jimmy.jpg"
+		},
+		{
+			"id": 2,
+			"title": "Magic strip",
+			"description": "<p>This strip is an alternative to the Jimmy. It can be manufactured from a wooden flat-bar. The magic strip is pointed in front, rounded at the back and has pyramid-shaped spikes. This strip can also be used like a Jimmy. Its spikes can be used for applying pressure better than a Jimmy, and this helps obtain good results in a short duration.</p>",
+			"image": "img/instruments/magic_strip.jpg"
+		},
+		{
+			"id": 3,
+			"title": "Roller",
+			"description": "<p>A roller is spiked, 6 to 8 inches long, has a diameter of about 1 inch. This is helpful in pressing many pressure-points at the same time. It is easy to use the roller on the palms and soles.</p>",
+			"image": "img/instruments/roller.jpg"
+		},
+		{
+			"id": 4,
+			"title": "Magic square",
+			"description": "<p>Magic square with 1, 2 and 3 rollers are helpful for children, middle aged and aged individuals. One has to merely stand on these squares and apply pressure forcefully. This square has simplified Acupressure to a great extent.</p>",
+			"image": "img/instruments/magic_square.jpg"
+		}
+	]
+}

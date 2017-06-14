@@ -8,20 +8,45 @@
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
     <div class="tabs tabs-custom">
-      <a class="tab-item" href="#/app/info">
-        <i class="icon ion-ios-information"></i>
-        Information
-      </a>
       <a class="tab-item" href="#/app/links">
         <i class="icon ion-home"></i>
         Home
+      </a>
+      <a class="tab-item" href="#/app/info">
+        <i class="icon ion-ios-information"></i>
+        Information
       </a>
       <a class="tab-item" href="javascript: void(0)" ng-click="share()">
         <i class="icon ion-android-share-alt"></i>
         Share
       </a>
+      <a class="tab-item" href="javascript: void(0)" ng-click="openLangModal()">
+        <i class="icon ion-ios-world"></i>
+        Language
+      </a>
     </div>
   </ion-side-menu-content>
+
+  <script id="change-lang.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="custom-nav">
+          <h1 class="title">Language Settings</h1>
+          <a class="button button-icon icon ion-close" ng-click="closeLangModal()"></a>
+        </ion-header-bar>
+        <ion-content class="container-bg">
+          <div class="item item-text-wrap">
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Language
+              </div>
+              <select ng-model="lang" ng-change="selectLang(lang)">
+                <option ng-repeat="lang in langs" value="{{lang.id}}">{{lang.title}}</option>
+              </select>
+            </label>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-calm dark">

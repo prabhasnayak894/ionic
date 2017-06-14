@@ -2,26 +2,25 @@
   <ion-content class="container-bg padding zodiac-content-wrapper">
     <label class="item item-input item-select">
       <div class="input-label">
-        Select your Zodiac
+        {{content.zodiac.select}}
       </div>
       <select ng-model="sign" ng-change="resetPage()" style="text-align: left;">
-        <option ng-repeat="(key, value) in zodiacSigns" value="{{key}}">{{key}}</option>
+        <option ng-repeat="(key, value) in content.zodiac_signs" value="{{key}}">{{key}}</option>
       </select>
     </label>
     
     <h3>
-      {{sign}}
-      <small style="color:#919191; font-style: italic;">{{zodiacSigns[sign].date}}</small>
+      <small style="color:#919191; font-style: italic;">{{content.zodiac_signs[sign].date}}</small>
     </h3>
 
-    <div>
-      <p><span class="bold">Temperament:</span> {{zodiacSigns[sign].info}}</p>
-      <p><span class="bold">Aliments:</span> <span ng-bind="zodiacSigns[sign].aliments"></span></p>
+    <div ng-if="sign && sign != ''">
+      <p><span class="bold">{{content.zodiac.temperament}}:</span> {{content.zodiac_signs[sign].info}}</p>
+      <p><span class="bold">{{content.zodiac.aliments}}:</span> <span ng-bind="content.zodiac_signs[sign].aliments"></span></p>
       <p>
-        <span class="bold">Points for a healthy life:</span>
+        <span class="bold">{{content.zodiac.points_label}}:</span>
       </p>
-      <a ng-repeat="point in zodiacSigns[sign].pressurepoints" style="margin: 0 5px 20px 0" class="button button-calm button-outline {{(points.id == point) ? 'active' : ''}}" href="javascript: void(0);" ng-click="showPoints(point)" >{{point}}</a>
-      <p ng-show="points != ''" >Tap on the points to get more details about it.</p>
+      <a ng-repeat="point in content.zodiac_signs[sign].pressurepoints" style="margin: 0 5px 20px 0" class="button button-calm button-outline {{(points.id == point) ? 'active' : ''}}" href="javascript: void(0);" ng-click="showPoints(point)" >{{point}}</a>
+      <p ng-show="points != ''" >{{content.query.p2}}</p>
     </div>
 
     <div id="tab_head_zodiac" class="tabs-striped tabs-top tabs-background-stable" ng-show="points != ''" style="position: relative; height: 49px; margin-top: 20px;">

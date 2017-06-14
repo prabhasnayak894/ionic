@@ -1,0 +1,38 @@
+{
+	"query": {
+		"title": "Search",
+		"description": "You can search for specific health related problems and get to know its healing points.",
+		"bg-color": "#68d3e3",
+		"icon": "ion-search"
+	},
+	"zodiacsigns": {
+		"title": "Zodiac",
+		"description": "Know common ailments as per your zodiac sign and know its healing points for a healthy life.",
+		"bg-color": "#42c7db",
+		"icon": "ion-person"
+	},
+	"science": {
+		"title": "Science",
+		"description": "Welcome to the world of <b>Acupressure</b> points on hands and feet. Learn the science behind it by clicking below",
+		"bg-color": "#42b0db",
+		"icon": "ion-erlenmeyer-flask"
+	},
+	"features": {
+		"title": "Features",
+		"description": "There are various advantages of <b>Acupressure</b>. Understand the various features and good things about it by clicking below",
+		"bg-color": "#339cde",
+		"icon": "ion-clipboard"
+	},
+	"instruments": {
+		"title": "Instruments",
+		"description": "Inorder to apply appropriate pressure to your pressure points, you can use any one of the  intruments given in the link below.",
+		"bg-color": "#218ccf",
+		"icon": "ion-settings"
+	},
+	"faqs": {
+		"title": "FAQs",
+		"description": "You can also go through our FAQs to get answers to your queries related to <b>Acupressure</b>",
+		"bg-color": "#0678ba",
+		"icon": "ion-help-circled"
+	}
+}

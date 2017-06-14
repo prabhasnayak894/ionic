@@ -1,12 +1,13 @@
 <ion-view view-title="About">
 	<ion-content class="container-bg">
 		<div class="list no-lines item-list">
-			<div class="bd-content">
-				<p>This application is based on a book titled <b>"Refloxology(Acupressure points on hands and feet)"</b></p>
-				<h3>About the author</h3> 
-				<h4>Mr. Vinayak Chandrakant Mahajan</h4>
-				<h5>Senior Acupressure Consultant</h5>
-				<p>Mr. Vinayak Chandrakant Mahajan is from Madgaon, Goa has been giving Acupressure treatment to patients at his clinics in different cities in Goa. He has been consistently doing research in this field since 2002. He has vast experience in the field of Acupressure. So far, he has helped thousands of patients in maintaining good health. He has saved the lives of many patients during extreme emergenies such as heart attacks or paralysis attacks, becoming unconscious, loss of blood during accidents. </p>
+			<div class="bd-content" style="margin-bottom: 60px;">
+				<p ng-bind-html="content.info.title"></p>
+				<h3>{{content.info.h3}}</h3> 
+				<h4>{{content.info.h4}}</h4>
+				<h5>{{content.info.h5}}</h5>
+				<p>{{content.info.p}}</p>
+				<p ng-bind-html="content.info.copyright" class="copyright"></p>
 			</div>
 		</div>
 	</ion-content>

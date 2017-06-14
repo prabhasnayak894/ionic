@@ -1,0 +1,34 @@
+{
+	"faqs": [
+		{
+			"id": 1,
+			"title": "Who can be treated with Acupressure?",
+			"description": "<p>Age is no bar for Acupressure treatment. Anyone, from a toddler to the aged can be treated. The recovery is quick in children, whereas, in elders it can take slightly longer.</p>"
+		},
+		{
+			"id": 2,
+			"title": "Duration and frequency of the treatment?",
+			"description": "<p>Acupressure treatment should be administered regularly till the patient is cured. Continuing the treatment even aftre getting cured helps in remaining healthy. Ideally, the  treatment should be administered twice a day, morning or evening or upon waking up in the morning and before going to bed at night. In an emergency, this treatment can be administered at any time, even after meals. There is no restriction of time for Acupressure treatment.</p>"
+		},
+		{
+			"id": 3,
+			"title": "How and how much pressure to apply during the treatment?",
+			"description": "<p>Press at a point for a second, release and repeat. Apply sustainable pressure. Gradually, as the tolerance level of the patient increases, increase the pressure.</p>"
+		},
+		{
+			"id": 4,
+			"title": "For how long should a point be pressed?",
+			"description": "<p>If an area is very painfull, apply pressure for 2 minutes(120 counts) and for normal area, 10 seconds(10 counts) are enough. In a few days, as the condition improves, the pain will subside. Keep reducing the duration accordingly.</p>"
+		},
+		{
+			"id": 5,
+			"title": "What precautions should be taken when using Acupressure instruments?",
+			"description": "<p>Acupressure instruments are best used on the palms and soles only. Do not use the spiked instruments on other parts of the body. Since, the spikes are likely tpo harm the tender skin.</p>"
+		},
+		{
+			"id": 6,
+			"title": "Everyone, specially those who have severe distress due to negative energies should perform Acupressure therapy while chanting God's name",
+			"description": "<p>Distressing enregy is emmityted byt he fingers of people who have severe distress due to negative energies. When Acupressure therapy is performed with these fingers the distressing energy is transmitted into the body. In kalyug today, the attacks of negative energies have increased to such an extent that almost every individual suffers from mild to sever distress. Hence, everyone should perform Acupressure therapy by chanting God's name.</p>"
+		}
+	]
+}

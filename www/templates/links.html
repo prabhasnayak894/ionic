@@ -5,6 +5,9 @@
 				<i class="icon {{item.icon}}"></i>
 				<h3>{{item.title}}</h3>
 			</button>
+			<div class="card card-error" ng-if="error">
+				There seems to be some problem. Please restart the app.
+			</div>
 			<br class="clr" />
 		</div>
 	</ion-content>

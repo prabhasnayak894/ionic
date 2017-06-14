@@ -1,0 +1,1401 @@
+{
+	"query": {
+		"title": "समस्या उद्भवलेल्या मुख्य भागाचे नाव टाइप करणे प्रारंभ करा काहीतरी <i style=\"font-style: italic; font-weight: bold;\">मान, डोके, कान इ.</i>",
+		"p1": "आपल्या समस्येला मुक्त करण्यासाठी दाबले जाण्यासाठी खाली, बिंदू <font color=\"#ff00000\">हायलाइट</font> केलेले मुद्दे आहेत.",
+		"p2": "याबद्दल अधिक तपशील मिळवण्यासाठी गुणांवर टॅप करा",
+		"search": "शोध प्रारंभ करा!"
+	},
+	"common_ailments": [
+		{
+			"title": "कमी उर्जा",
+			"id": "1"
+		}, {
+			"title": "मधुमेह",
+			"id": "4"
+		}, {
+			"title": "रक्तदाब",
+			"id": "4"
+		}, {
+			"title": "संक्रमण",
+			"id": "5"
+		}, {
+			"title": "साइनस",
+			"id": "7"
+		}, {
+			"title": "घसा",
+			"id": "9"
+		}, {
+			"title": "टॉन्सिल",
+			"id": "10"
+		}, {
+			"title": "पित्त",
+			"id": "16a"
+		}, {
+			"title": "पोट",
+			"id": "20"
+		}, {
+			"title": "वाटा",
+			"id": "41"
+		}, {
+			"title": "थायरॉईड",
+			"id": "21"
+		}, {
+			"title": "मूत्रपिंड",
+			"id": "22"
+		}, {
+			"title": "यकृत",
+			"id": "23a"
+		}, {
+			"title": "हार्ट",
+			"id": "23b"
+		}
+	],
+	"zodiac": {
+		"select": "आपले राशिचक्र निवडा",
+		"temperament": "स्वभाव",
+		"aliments": "सामान्य आजार",
+		"points_label": "निरोगी जीवन साठी बिंदू"
+	},
+	"zodiac_signs": {
+		"मेष": {
+			"info": "उत्साही प्रती, त्याच्या दृश्यांसह हट्टी",
+			"date":"21 मार्च - 19 एप्रिल",
+			"aliments": "कंबर आणि पाठदुखी, त्वचेची पेटके आणि पाचक प्रणाली",
+			"pressurepoints": ["9", "10", "16", "16a", "28a", "28b"]
+		},
+		"वृषभ": {
+			"info": "कठोर परिश्रम, पण पुरेसे प्रदान केले नाही",
+			"date":"20 एप्रिल - 20 मे",
+			"aliments": "कान च्या निगडीत, सामान्य सर्दी, चक्कर आदीता, आंबटपणा",
+			"pressurepoints": ["9", "10", "11", "28a", "28b"]
+		},
+		"मिथुन": {
+			"info": "गोष्टींना गांभीर्यानं घेऊ नका",
+			"date":"21 मे - 20 जून",
+			"aliments": "सामान्य सर्दी, सांधे आणि संधिवात वेदना",
+			"pressurepoints": ["9", "10", "27", "28a", "28b"]
+		},
+		"कर्क": {
+			"info": "भावनिक, काळजी आणि मानसिक कमकुवत",
+			"date":"21 जून - 22 जुलै",
+			"aliments": "वयाच्या 60 व्या वर्षानंतर पोट संबंधित ऍलेंट तीव्र होतात",
+			"pressurepoints": ["4", "20", "28a", "28b", "29", "30"]
+		},
+		"सिंह": {
+			"info": "मानवाच्या, स्वभावाचा, दीर्घकालीन राग, मनाची स्थिरता",
+			"date":"23 जुलै - 22 ऑगस्ट",
+			"aliments": "पचन, चक्कर येणे, आंबटपणा, त्वचा रोग यांसारख्या उपाया जसे सोरायसिस",
+			"pressurepoints": ["20", "28a", "28b", "29", "30", "34", "35"]
+		},
+		"कन्या": {
+			"info": "वक्तृत्वपूर्ण आणि वेगवान इतर, जास्त विश्लेषणात्मक वृत्ती",
+			"date":"23 ऑगस्ट - 22 सप्टेंबर",
+			"aliments": "सामान्य थंड आणि मानसिक आहार",
+			"pressurepoints": ["4", "9", "10", "21", "27", "31"]
+		},
+		"तुला": {
+			"info": "निसर्गाने राजकारणी",
+			"aliments": "थायरॉईड, घशातील आणि पाचक प्रणालीचे पदार्थ",
+			"date":"23 सप्टेंबर - 22 ऑक्टोबर",
+			"pressurepoints": ["9", "10", "21", "28a", "28b"]
+		},
+		"वृश्चिक": {
+			"info": "कठीण परिस्थितीत, धीटपणा, धीटपणा",
+			"date":"23 ऑक्टोबर - 21 नवम्बर",
+			"aliments": "कंबर आणि मागे वेदना, त्वचा आणि पाचन व्यवस्थेचे पदार्थ",
+			"pressurepoints": ["9", "10", "16", "16a", "28a", "28b"]
+		},
+		"धनु": {
+			"info": "कोयर्ड, धक्कादायक आणि भावपूर्ण भावभावना द्वारे",
+			"date":"22 नवम्बर - 21 डिसेंबर",
+			"aliments": "पीठ आणि कमर, त्वचा आणि पाचन व्यवस्थेच्या स्थितीत वेदना",
+			"pressurepoints": ["9", "10", "16","16a", "28a", "28b"]
+		},
+		"मकर": {
+			"info": "चवदार भक्षक, आळशी आणि विसराळू",
+			"date":"22 डिसेंबर - 19 जानेवारी",
+			"aliments": "संसर्गामुळे झालेली पदार्थ",
+			"pressurepoints": ["9", "10", "28a", "28b"]
+		},
+		"कुंभ": {
+			"info": "शंकास्पद निसर्ग, विश्लेषणात्मक आणि तपासणीचा स्वभाव, आरक्षित (भावना व्यक्त करणे)",
+			"date":"20 जानेवारी - 18 फेब्रुवारी",
+			"aliments": "सामान्य सर्दी, लठ्ठपणा, मानसिक आहार",
+			"pressurepoints": ["9", "10", "21", "27", "31"]
+		},
+		"मीन": {
+			"info": "दीर्घ गोष्टी लक्षात ठेवून, एका \"स्वत: च्या शेलमध्ये\"",
+			"date":"19 फेब्रुवारी - 20 मार्च",
+			"aliments": "आम्लता, पुरुषांमध्ये व्यसन, मानसिक समस्या वृद्धी आणि गुडघा संयुक्त वेदना",
+			"pressurepoints": ["4", "16", "16a", "28a", "28b", "33", "34", "35"]
+		}
+	},
+	"points": {
+		"1": {
+			"title": "Little toe",
+			"description": "<p>लिटल टो एक ऊर्जा केंद्र आहे. टोके दाबली गेल्यास शरीराला उष्णतेचा सामना करावा लागतो आणि लगेचच आपण ऊर्जा प्राप्त करतो. जेव्हा एखादी व्यक्ती अधिकाधिक थकल्यासारखे होते किंवा अस्वस्थ होते तेव्हा ती उपयुक्त असते.</p>",
+			"associated_with": ["ऊर्जा केंद्र", "ऊर्जा", "थकल्यासारखे", "बेशुद्ध"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "64, 121, 71, 124, 77, 130, 80, 137, 81, 148, 73, 145, 68, 138, 65, 130"
+				}, {
+					"type": "poly", 
+					"value": "42, 136, 46, 129, 50, 126, 54, 123, 54, 132, 53, 141, 51, 148, 47, 152, 42, 156, 41, 148, 40, 142"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "348,100,357,110,361,122,360,134,350,125,346,112"
+				}, {
+					"type": "poly", 
+					"value": "335,97,324,105,319,116,319,124,330,116,336,107"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "23,143,27,149,27,159,23,168,18,174,18,154"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "370,126,375,138,376,152,369,145,367,134"
+				}]
+			}]
+		},
+		"2": {
+			"title": "The web between the little toe and the fourth toe",
+			"description": "<p>या वेबवर जेव्हा दबाव लागू होतो तेव्हा कान निरोगी राहते.</p>",
+			"associated_with": ["कान", "कान ड्रम्स"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "93, 187, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "305,161,13"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "79,283,18"
+				}, {
+					"type": "poly", 
+					"value": "48,142,46,156,49,165,57,171,55,155"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "318,257,14"
+				}, {
+					"type": "poly", 
+					"value": "346,126,349,134,348,144,339,152,340,135"
+				}]
+			}]
+		},
+		"3": {
+			"title": "Web between the fourth and third(middle) toe and the fourth toe",
+			"description": "या वेबवर तसेच चारवेळा डोके नियंत्रित केल्याने डोळ्यांद्वारे चांगले आरोग्य राखण्यास मदत होते आणि चष्मे वापरणे टाळता येते",
+			"associated_with": ["डोळा", "दृष्टि", "चष्मा", "दृष्टी"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "131, 157, 13"
+				}, {
+					"type": "poly", 
+					"value": "91, 72, 84, 82, 79, 94, 81, 110, 90, 100, 94, 85"
+				}, {
+					"type": "poly", 
+					"value": "103, 70, 104, 81, 109, 91, 121, 101, 118, 83"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "263,132,13"
+				}, {
+					"type": "poly", 
+					"value": "306,49,317,62,320,74,318,85,307,76,303,62"
+				}, {
+					"type": "poly", 
+					"value": "291,47,293,56,290,67,280,75,272,79,277,59"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "214,258,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "184,229,15"
+				}]
+			}]
+		},
+		"4": {
+			"title": "Third toe",
+			"description": "हे मनोवैज्ञानिक संतुलन राखण्याच्या दृष्टिकोनातून एक अतिशय महत्वाचे पायाचे बोट आहे. मनोरुग्ण असलेल्या मधुमेहासारख्या रोगापासून मुक्त होण्याकरिता आणि उदासीनता, वेडेपणा, लालसा आणि मत्सरासारख्या इतर मानसिक आजार कमी करण्यासाठी रोगापासून मुक्त होण्याकरिता यावर दबाव टाकणे. कोणतीही इजा आणि रक्तस्त्राव थांबवण्याकरता हे पायाचे बोट महत्वपूर्ण आहे.",
+			"associated_with": ["मानसिक कुशलता", "रक्तदाब", "मधुमेह", "रक्तस्त्राव थांबवा", "मानसिक अस्थिरता", "मन", "मंदी", "वेडेपणा", "वासना", "मत्सर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "149, 38, 150, 51, 157, 64, 166, 70, 166, 56, 159, 44"
+				}, {
+					"type": "poly", 
+					"value": "135, 40, 127, 52, 124, 67, 125, 78, 136, 65, 139, 54"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "257, 20, 266, 27, 270, 35, 273, 45, 272, 56, 263, 50, 257, 40"
+				}, {
+					"type": "poly", 
+					"value": "244,20,243,35,237,45,227,51,229,34"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "92,53,94,67,91,79,82,87,83,70"
+				}, {
+					"type": "poly", 
+					"value": "115,54,114,70,117,80,124,87,123,70"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "304,49,310,58,313,70,313,76,303,66,301,55"
+				}, {
+					"type": "poly", 
+					"value": "281,50,284,57,281,70,273,78,274,65,276,56"
+				}]
+			}]
+		},
+		"5": {
+			"title": "Web between third and the second toe",
+			"description": "येथे दबाव वाढविणे शरीराची प्रतिकारशक्ती वाढविते. कुठल्याही प्रकारचे संक्रमण झाले तरी या टप्प्यावर दबाव टाकणे.",
+			"associated_with": ["रोगापासून बचाव करणारी ऊर्जा", "रोग टाळणे", "संसर्ग", "रोग प्रतिकारशक्ती वाढवा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "175, 135, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "216,114,13"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "142,262,19"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "257,237,15"
+				}]
+			}]
+		},
+		"6": {
+			"title": "Second toe",
+			"description": "हा बिंदू मान आणि नाकाशी संबंधित आहे.",
+			"associated_with": ["मान", "नाक", "कडक मान"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "198, 74, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "191,55,15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "163,15,166,29,162,40,154,48,155,31"
+				}, {
+					"type": "poly", 
+					"value": "187,15,195,28,197,43,197,48,186,37,185,22"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "237,17,243,25,246,42,237,35,235,25"
+				}, {
+					"type": "poly", 
+					"value": "215,17,218,26,207,43,208,28"
+				}]
+			}]
+		},
+		"7": {
+			"title": "Second toe",
+			"description": "हा बिंदू नाकच्या अगदी जवळ असलेल्या नाकाशी संबंधित आहे.",
+			"associated_with": ["साइनस", "नाकच्या जवळ साइनस", "सायनस डोकेदुखी"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "190, 17, 177, 32, 174, 49, 174, 58, 187, 51, 194, 32"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "201,4,214,12,219,24,220,35,220,39,203,30,200,14"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "240,52,242,65,237,77,228,85,232,62"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "166,46,175,56,177,66,177,74,166,63,163,51"
+				}]
+			}]
+		},
+		"8": {
+			"title": "Second toe",
+			"description": "हा बिंदू नजरेने नाकाशी संबंधित नाकाशी संबंधित आहे.",
+			"associated_with": ["साइनस", "डोळेच्या जवळ साइनस", "सायनस डोकेदुखी"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "205, 14, 205, 30, 207, 42, 222, 56, 224, 39, 217, 24"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "187,3,188,19,182,33,170,40,171,19"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "263,54,271,68,273,87,261,76,260,59"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "145,48,147,60,144,70,135,76,136,63"
+				}]
+			}]
+		},
+		"9": {
+			"title": "Web between the second toe and the big toe",
+			"description": "हा मुद्दा घसाशी संबंधित समस्यांशी निगडीत आहे.",
+			"associated_with": ["घसा", "घसा खवखवणे", "घशा खवखवणे"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "218, 140, 11"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "170,116,13"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "263,349,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "134,316,15"
+				}]
+			}]
+		},
+		"10": {
+			"title": "Web between the second toe and the big toe",
+			"description": "हा मुद्दा टॉन्सल्सशी संबंधित समस्यांशी निगडीत आहे.",
+			"associated_with": ["टॉन्सिल"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "237, 142, 11"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "150,122,13"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "280,355,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "117,325,16"
+				}]
+			}]
+		},
+		"11": {
+			"title": "Big toe",
+			"description": "मोठ्या पायाचे बोट डोके संबद्ध आहे. त्याच्या आतील बाजूस, दुसऱ्या टोकांच्या बाजूचा अर्थ, मंदिर, कान आणि गालगुंशी संबंधित गुण आहेत.",
+			"associated_with": ["कानपटी", "कान", "गालगुंड", "सिर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "238, 29, 246, 46, 245, 67, 239, 79, 229, 84, 229, 60, 232, 41"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "155,18,147,33,146,46,149,59,161,68,164,42"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "346,231,341,248,327,262,317,266,330,245"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "56,203,73,219,83,235,68,229,59,216"
+				}]
+			}]
+		},
+		"12": {
+			"title": "Big toe",
+			"description": "हा मुद्दा नेत्रगोलांच्या स्नायूशी संबंधित आहे. हे भिकार आलेले आहेत ज्यांना मदत करणे",
+			"associated_with": ["डोळा स्नायू", "डोळा", "स्क्वांट डोळा", "नेत्रगोलकांचा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "246, 25, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "144,16,15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "354,231,14"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "48,204,14"
+				}]
+			}]
+		},
+		"13": {
+			"title": "Big toe",
+			"description": "मोठ्या पायाच्या बाह्य आवरणाची बाह्यगुरु गर्भाशयातील स्पॉन्डिलायटीशी संबंधित आहे.",
+			"associated_with": ["ग्रीवा स्पॉन्डिलायसी", "स्पोंडिलोसिस", "वक्रित"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "287, 11, 297, 30, 303, 54, 304, 86, 298, 109, 293, 122, 304, 127, 313, 97, 317, 65, 312, 41, 298, 17"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "106,7,94,37,89,60,92,89,97,107,85,111,79,83,77,58,85,30"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "376,233,365,250,356,272,350,295,352,310,356,313,368,275,379,246"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "26,204,35,215,45,239,48,265,45,277,40,283,32,243,24,219"
+				}]
+			}]
+		},
+		"14": {
+			"title": "Big toe",
+			"description": "हा मुद्दा शंकू आणि पिट्यूट ग्रंथींशी निगडीत आहे. निद्रानाश, मानेतील वेदना यांसारख्या व्याधींमध्ये या मुद्द्यावर दबाव लागू होतो.",
+			"associated_with": ["शंकूच्या आकारचा ग्रंथी", "पिट्यूटरी ग्रंथी", "झोप", "शंकूच्या", "पिट्यूटरी", "निद्रानाश", "मान"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "302, 59, 316, 57, 315, 86, 303, 86"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "77,48,89,48,89,75,76,74"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "361,257,372,262,362,291,351,286"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "40,227,47,255,35,259,28,231"
+				}]
+			}]
+		},
+		"15": {
+			"title": "Big toe",
+			"description": "मोठ्या पायाची बोटांची पाय (ज्याला पाय जोडता येते) देखील मानांशी संबंधित आहे",
+			"associated_with": ["मान च्या संधी", "मान"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "267, 129, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "121,115,14"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "310,352,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "84,321,18"
+				}]
+			}]
+		},
+		"16": {
+			"title": "Mound between the second and the third toe",
+			"description": "हा बिंदू फुफ्फुस आणि थायमस ग्रंथीशी संबंधित आहे. हा मुद्दा 12 वर्षांपर्यंतच्या मुलांच्या सर्व आजारांमध्ये उपयोगी आहे. या मुद्द्याला भगवंताचे बिंदू म्हटले जाते",
+			"associated_with": ["थायमस ग्रंथी", "फुफ्फुसे", "थायमस"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "176, 240, 11"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "215,218,16"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "214,333,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "182,304,17"
+				}]
+			}]
+		},
+		"16a": {
+			"title": "Mound between the second and the third toe",
+			"description": "हा मुद्दा पित्त संबंधित आजाराशी संबंधित आहे त्यामुळे सुखी खोकलामध्येही.",
+			"associated_with": ["पित्त"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "176, 258, 12"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "214,239,16"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "188,359,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "208,331,16"
+				}]
+			}]
+		},
+		"17": {
+			"title": "Below fifth toe",
+			"description": "हा बिंदू खांताच्या बाह्य भागाशी संबंधित आहे.",
+			"associated_with": ["खांदा बाह्य भाग", "खांदा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "52, 211, 57, 215, 61, 224, 64, 238, 64, 258, 62, 275, 56, 283, 45, 285, 45, 259, 46, 238"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "350,187,342,196,338,231,344,255,351,264,359,265,359,219"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "28,336,35,343,44,365,44,388,39,407"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "370,311,367,352,364,380,357,367,357,336,361,317"
+				}]
+			}]
+		},
+		"18": {
+			"title": "Below fifth toe",
+			"description": "हा मुद्दा खांदाच्या आतील भागाशी संबंधित आहे.",
+			"associated_with": ["खांदा च्या आतील भाग", "खांदा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "300, 160, 303, 179, 306, 210, 304, 240, 298, 266, 290, 285, 284, 279, 282, 248, 286, 200, 289, 178"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "87,142,96,154,101,186,102,222,100,255,93,269,80,231,79,188,85,157"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "339,372,329,406,323,420,314,435,316,404,327,382"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "54,339,69,358,77,385,77,405,75,409,66,391,57,355"
+				}]
+			}]
+		},
+		"19": {
+			"title": "Shoulder blade",
+			"description": "हा बिंदू वेदनाशामक संबंधित आहे",
+			"associated_with": ["खांदा ब्लेड", "घोटा फ्रुट", "खांदा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "220, 156, 214, 184, 213, 197, 214, 226, 216, 238, 218, 253, 217, 252, 212, 183"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "168,134,177,167,177,197,170,233,176,204,177,172"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "181,386,171,423,167,451,169,495,166,456,172,416"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "214,356,223,379,228,406,231,444,229,416,225,385"
+				}]
+			}]
+		},
+		"20": {
+			"title": "Point 20",
+			"description": "हा मुद्दा पोटशी निगडीत आहे.",
+			"associated_with": ["पोट"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "256, 311, 26"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "121,293,28"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "248,386,13"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "146,358,14"
+				}]
+			}]
+		},
+		"21": {
+			"title": "point 21",
+			"description": "हा मुद्दा थायरॉइड ग्रंथीशी निगडीत आहे.",
+			"associated_with": ["थायरॉइड ग्रंथीशी", "थायरॉइड"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "227, 283, 15"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "157,265,16"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "198,422,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "196,397,18"
+				}]
+			}]
+		},
+		"22": {
+			"title": "Point 22",
+			"description": "हा मुद्दा मूत्रपिंडेशी संबंधित आहे.",
+			"associated_with": ["मूत्रपिंडेशी"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "174, 285, 15"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "215,266,17"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "166,475,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "229,456,16"
+				}]
+			}]
+		},
+		"23a": {
+			"title": "Point 23A",
+			"description": "हा मुद्दा यकृतशी संबद्ध आहे (उजवीकडे पाम वर).",
+			"associated_with": ["यकृत (उजवीकडे पाम वर)", "यकृत"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "91, 285, 19"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "85,392,19"
+				}]
+			}]
+		},
+		"23b": {
+			"title": "Point 23B",
+			"description": "हा मुद्दा हृदयाशी संबंधित आहे (डाव्या तळहात वर)",
+			"associated_with": ["हृदय(डाव्या तळहात वर)", "हृदय"],
+			"images": [{
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "310,264,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "316,365,18"
+				}]
+			}]
+		},
+		"24": {
+			"title": "24",
+			"description": "हा मुद्दा स्वादुपिंड संबंधित आहे",
+			"associated_with": ["स्वादुपिंड"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "102,322,15"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "296,306,17"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "204,368,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "192,342,18"
+				}]
+			}]
+		},
+		"25": {
+			"title": "Point 25",
+			"description": "हा मुद्दा शरीराची ऊर्जा केंद्र आहे. हे टॉवर बॅटरीशी तुलना करता येते. या उपकरणास व्यवस्थित कार्य करण्यासाठी, बॅटरीला योग्यरित्या चार्ज करावा लागतो, त्याचप्रमाणे शरीरास व्यवस्थित कार्य करावे लागते, हे ऊर्जा केंद्र चांगल्या स्थितीत असणे आवश्यक आहे.",
+			"associated_with": ["ऊर्जा केंद्र", "ऊर्जा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "101,397,13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "298,389,15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "117,432,18"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "282,403,19"
+				}]
+			}]
+		},
+		"26": {
+			"title": "Point 26",
+			"description": "हा बिंदू पाय च्या गुडघे आणि नसा संबद्ध आहे.",
+			"associated_with": ["गुडघे", "पायांची शिरे."],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "130,406,14"
+				}, {
+					"type": "circle", 
+					"value": "175,406,17"
+				}, {
+					"type": "circle", 
+					"value": "229,407,16"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "152,398,19"
+				}, {
+					"type": "circle", 
+					"value": "211,400,20"
+				}, {
+					"type": "circle", 
+					"value": "263,400,20"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "79,313,17"
+				}, {
+					"type": "circle", 
+					"value": "139,297,18"
+				}, {
+					"type": "circle", 
+					"value": "211,290,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "189,262,16"
+				}, {
+					"type": "circle", 
+					"value": "256,273,16"
+				}, {
+					"type": "circle", 
+					"value": "319,287,17"
+				}]
+			}]
+		},
+		"27": {
+			"title": "Point 27",
+			"description": "हा मुद्दा अधिवृक्क ग्रंथीशी निगडीत आहे.",
+			"associated_with": ["अधिवृक्क ग्रंथीशी", "अधिवृक्क"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "249, 380, 14"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "130, 368, 15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "200,233,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "200,233,15"
+				}]
+			}]
+		},
+		"28a": {
+			"title": "Point 28A",
+			"description": "हा मुद्दा पित्ताशयाशी संबंधित आहे (उजवीकडे पाम वर)",
+			"associated_with": ["पित्ताशयाशी(उजवीकडे पाम वर)", "पित्ताशयाशी"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "102, 477, 15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "89,471,18"
+				}]
+			}]
+		},
+		"28b": {
+			"title": "Point 28B",
+			"description": "हा मुद्दा प्लीहा (डाव्या पाम वर) शी संबंधित आहे.",
+			"associated_with": ["प्लीहा(डाव्या पाम वर)", "प्लीहा"],
+			"images": [{
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "297,478,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "309,449,17"
+				}]
+			}]
+		},
+		"29": {
+			"title": "Point 29",
+			"description": "हा मुद्दा मोठ्या आतड्यांशी निगडीत आहे.",
+			"associated_with": ["मोठ्या आतड्यां"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "174,515,16"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "208,525,29"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "257,449,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "133,425,16"
+				}]
+			}]
+		},
+		"30": {
+			"title": "Point 30",
+			"description": "हा मुद्दा लहान आतड्यांशी निगडीत आहे.",
+			"associated_with": ["लहान आतड्यां"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "232,516,13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "149,526,22"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "271,420,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "121,393,16"
+				}]
+			}]
+		},
+		"31": {
+			"title": "Point 31",
+			"description": "हा मुद्दा कमरशी संबंधित आहे.",
+			"associated_with": ["कमर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "254,515,13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "118,524,21"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "250,484,14"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "140,462,18"
+				}]
+			}]
+		},
+		"32": {
+			"title": "Point 32",
+			"description": "हा बिंदू गुडघा, टखद हाड आणि कमरच्या बाहेरील बाजूशी निगडीत असतो.",
+			"associated_with": ["कमरच्या बाहेरील बाजू", "गुडघा", "टखद हाड", "टखद", "कमर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "78,523,95,547,106,577,109,612,110,633,106,650,88,625,79,598,76,564"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "328,538,309,568,296,608,291,650,296,701,323,659,332,612,330,570"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "54,480,63,485,72,498,79,517,80,528,76,539"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "348,462,341,490,336,502,327,525,322,512,327,488,335,471"
+				}]
+			}]
+		},
+		"33": {
+			"title": "Point 33",
+			"description": "हा बिंदू मूत्रमार्गातील मार्ग, कमर, घोट्याच्या हाड आणि गुडघाच्या आतील बाजूशी निगडीत असतो.",
+			"associated_with": ["मूत्रमार्गात", "मूत्रमार्गातील मार्ग", "कमर", "गुडघाच्या आतील बाजू", "गुडघा", "टखद हाड", "टखद"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "257,520,238,548,231,580,227,616,234,652,252,621,258,579,259,537"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "117,530,131,548,147,597,149,637,143,701,123,668,115,623"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "249,536,250,525,257,509,268,498,279,491,284,491,260,525,255,528"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "104,468,123,480,136,499,140,513,139,521,130,508"
+				}]
+			}]
+		},
+		"34": {
+			"title": "Point 34",
+			"description": "हा मुद्दा कर्करोग, संक्रमण आणि रक्तस्त्रावशी संबंधित आहे.",
+			"associated_with": ["कर्करोग", "संक्रमण", "रक्तस्त्राव"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "229,651,13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "145,693,14"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "178,516,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "215,499,19"
+				}]
+			}]
+		},
+		"35": {
+			"title": "Point 35",
+			"description": "हा मुद्दा कर्करोग, गुद्द्वार रोग व मूळव्याध सह संबद्ध आहे",
+			"associated_with": ["कर्करोग", "गुद्द्वार रोग", "गुद्द्वार", "मूळव्याध"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "109,654,138,644,169,642,192,644,208,647,229,656,203,675,176,680,124,666,123,666"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "291,704,256,692,207,686,171,692,144,703,165,721,192,735,217,738,250,734,279,718"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "178,516,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "215,499,19"
+				}]
+			}]
+		},
+		"36": {
+			"title": "Point 36",
+			"description": "हा मुद्दा टेस्टेस आणि अंडकोष संबद्ध आहे.",
+			"associated_with": ["टेस्टेस", "अंडकोष"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "92,586,18"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "310,583,18"
+				}]
+			}]
+		},
+		"37": {
+			"title": "Point 37",
+			"description": "हा बिंदू प्रॉस्टेट ग्रंथीशी संबंधित आहे.",
+			"associated_with": ["प्रॉस्टेट ग्रंथीशी", "प्रॉस्टेट"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "235,550,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "153,539,14"
+				}]
+			}]
+		},
+		"38": {
+			"title": "Point 38",
+			"description": "हा मुद्दा गर्भाशेशी संबद्ध आहे.",
+			"associated_with": ["गर्भाशय"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "232,573,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "153,565,13"
+				}]
+			}]
+		},
+		"39": {
+			"title": "Point 39",
+			"description": "हा बिंदू पुरुषाचे जननेंद्रिय संबंधित आहे.",
+			"associated_with": ["पुरुषाचे जननेंद्रिय"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "234,597,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "152,590,13"
+				}]
+			}]
+		},
+		"40": {
+			"title": "Point 40",
+			"description": "हा मुद्दा मूत्र पथांशी संबंधित आहे",
+			"associated_with": ["मूत्र पथांशी", "मूत्र"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "233,618,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "153,616,15"
+				}]
+			}]
+		},
+		"41": {
+			"title": "Point 41",
+			"description": "हा मुद्दा वटाशी निगडीत आहे.",
+			"associated_with": ["वाटा"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "237, 510, 13"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "153,493,14"
+				}]
+			}]
+		}
+	}
+}

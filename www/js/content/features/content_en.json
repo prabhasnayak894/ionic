@@ -1,0 +1,24 @@
+{
+	"features": [
+		{
+			"id": 1,
+			"title": "Self-treatment without the use of medicines",
+			"description": "<p>This method of treatment uses no medicines. A is patient diagnosed and treated only by application of pressure to the pressure-points on the body. The best part of this treatment is that the patient can treat himself.</p>"
+		},
+		{
+			"id": 2,
+			"title": "Beneficial for all",
+			"description": "<p>This treatment is extremely beneficial for the people in all fields and for all age groups. By practicing Acupressure regularly, everyone can increase his/her capacity and thereby be happy in life in thr tue sense.</p>"
+		},
+		{
+			"id": 3,
+			"title": "Helpful in maintaining the balanc of vata, pitta and kapha",
+			"description": "<p>According to Ayurveda (One of the four upa-Vedas of Atharvaveda, which teaches good health depends on the balance of vata[Gas], pitta[Bile] and kapha[Phlegm]), himan body has three doshas(Defeciencies of flaws) in the form of vata, pitta and kapha. Whenever there is an imbalance of any one or more, they pollute the entire body, hence, they are termed doshas. Whwnever the three are in balance state, the individual is healthy. When the balance is disturbed, diseases overwhelm our body.</p><ul><li>Vata: Vata is essential for all the movements within the body. When the balance of vat is disturbed, it becomes sluggies, it shrinks. There are muscle cramps, the individual slows down and muscle pain starts.</li><li>Pitta: Pitta is essential for digestion. If the balance of pitta is disturbed, indigestion is the result. Diseases such as kidney stones, skin diseases, burning sensation, giddiness, excessive sweating, abscess, gangrene are result of imbalanced pitta. Many a times ailments such as headache, erache, dry cough, asthma, pain in knee joints or arthritis, imbalance of pitta is underlying cause.</li><li>Kapha: Kapha plays a role of lubricant in humab body. Wet cough, asthma, as also ailments of the throat and chet are signs of imbalance of kapha.</li></ul>"
+		},
+		{
+			"id": 4,
+			"title": "Assistance in improving digestion",
+			"description": "<p>balance of vata, pitta and kapha primarily depends on digestive system. Acupressure helps improve digestive system. Inthe present day situations, over-eating seems to be the cause of most of the diseases. Acupressure every day brings about control over eating, which inturm prevents accumulation of unwanted fat, besides, it also curbs greed, lust in the mind.</p>"
+		}
+	]
+}

@@ -1,12 +1,12 @@
 <ion-view view-title="Search Points">
 	<ion-content class="container-bg">
 		<div class="list list-inset info" ng-if="points == ''">
-			<p>Start typing the name of the body part which is causing the problem. Something like <i style="font-style: italic; font-weight: bold;">neck, head, ear, etc.</i></p>
+			<p ng-bind-html="content.query.title"></p>
 		</div>
 		<div class="list list-inset query-input">
 			<label class="item item-input">
 				<i class="icon ion-search placeholder-icon"></i>
-				<input type="text" readonly="readonly" placeholder="Start searching!" 
+				<input type="text" readonly="readonly" placeholder="{{content.query.search}}" 
 					class="ion-autocomplete" 
 					ion-autocomplete 
 					autocomplete="off" 
@@ -20,12 +20,12 @@
 					items-clicked-method="showPoints(callback)" 
 					items-method="getQueryResult(query)"/>
 			</label>
-			<a ng-repeat="point in common_ailments" style="margin: 5px 5px 0px 0" class="button button-calm button-outline button-small {{(points.id == point) ? 'active' : ''}}" href="javascript: void(0);" ng-click="showCommonPoints(point)" >{{point.title}}</a>
+			<a ng-repeat="point in content.common_ailments" style="margin: 5px 5px 0px 0" class="button button-calm button-outline button-small {{(points.id == point) ? 'active' : ''}}" href="javascript: void(0);" ng-click="showCommonPoints(point)" >{{point.title}}</a>
 		</div>
 
 		<div class="list list-inset info" ng-if="points != ''">
-			<p>Below are the points, highlighted in <font color="#ff00000">red</font>, to be pressed to releive your problem.</p>
-			<p>Tap on the points to get more details about it.</p>
+			<p ng-bind-html="content.query.p1"></p>
+			<p>{{content.query.p2}}</p>
 		</div>
 
 		<div id="tab_head_query" class="tabs-striped tabs-top tabs-background-stable" ng-if="points != ''" style="position: relative; height: 49px;">

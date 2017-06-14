@@ -1,0 +1,1401 @@
+{
+	"query": {
+		"title": "शरीर के अंग का नाम टाइप करना शुरू करें जो समस्या पैदा कर रहा है। कुछ <i style=\"font-style: italic; font-weight: bold;\">गर्दन, सिर, कान, आदि की तरह</i>",
+		"p1": "आपकी समस्या को रिहा करने के लिए दबाए जाने के लिए नीचे दिए गए बिंदु, <font color=\"#ff00000\">लाल</font> रंग में हाइलाइट किए गए हैं",
+		"p2": "इसके बारे में अधिक विवरण पाने के लिए अंक पर टैप करें",
+		"search": "खोज शुरू करो!"
+	},
+	"common_ailments": [
+		{
+			"title": "कम ऊर्जा",
+			"id": "1"
+		}, {
+			"title": "मधुमेह",
+			"id": "4"
+		}, {
+			"title": "रक्त चाप",
+			"id": "4"
+		}, {
+			"title": "संक्रमण",
+			"id": "5"
+		}, {
+			"title": "साइनस",
+			"id": "7"
+		}, {
+			"title": "गला",
+			"id": "9"
+		}, {
+			"title": "टॉन्सिल",
+			"id": "10"
+		}, {
+			"title": "पित्त",
+			"id": "16a"
+		}, {
+			"title": "पेट",
+			"id": "20"
+		}, {
+			"title": "वात",
+			"id": "41"
+		}, {
+			"title": "थाइरोइड",
+			"id": "21"
+		}, {
+			"title": "गुर्दा",
+			"id": "22"
+		}, {
+			"title": "जिगर",
+			"id": "23a"
+		}, {
+			"title": "दिल",
+			"id": "23b"
+		}
+	],
+	"zodiac": {
+		"select": "अपने राशि का चयन करें",
+		"temperament": "स्वभाव",
+		"aliments": "बीमारियां",
+		"points_label": "एक स्वस्थ जीवन के लिए बिंदु"
+	},
+	"zodiac_signs": {
+		"मेष": {
+			"info": "अपने विचारों के साथ हठ, उत्साही से अधिक",
+			"date":"21 मार्च - 19 अप्रैल",
+			"aliments": "कमर और पीठ दर्द, त्वचा के पेटेंट और पाचन तंत्र",
+			"pressurepoints": ["9", "10", "16", "16a", "28a", "28b"]
+		},
+		"वृषभ": {
+			"info": "कठिन काम है, लेकिन पर्याप्त रूप से सम्मानित नहीं किया",
+			"date":"20 अप्रैल - 20 मई",
+			"aliments": "कान की बीमारियां, आम सर्दी, चक्कर आना, अम्लता",
+			"pressurepoints": ["9", "10", "11", "28a", "28b"]
+		},
+		"मिथुन": {
+			"info": "चीजें गंभीरता से न लें",
+			"date":"21 मई - 20 जून",
+			"aliments": "आम सर्दी, जोड़ों और गठिया में दर्द",
+			"pressurepoints": ["9", "10", "27", "28a", "28b"]
+		},
+		"कर्क": {
+			"info": "भावनात्मक, चिंता और मनोवैज्ञानिक कमजोर",
+			"date":"21 जून - 22 जुलाई",
+			"aliments": "पेट के संबंधित पेटी 60 साल की उम्र के बाद तेज होती हैं",
+			"pressurepoints": ["4", "20", "28a", "28b", "29", "30"]
+		},
+		"सिंह": {
+			"info": "प्रधानाचार्य, स्वभावपूर्ण, लंबे समय तक चलने वाला क्रोध, मन की दृढ़ता",
+			"date":"23 जुलाई - 22 अगस्त",
+			"aliments": "पाचन, चक्कर आना, अम्लता, त्वचा रोग जैसे कि छालरोग के साथ जुड़ा हुआ पदार्थ",
+			"pressurepoints": ["20", "28a", "28b", "29", "30", "34", "35"]
+		},
+		"कन्या": {
+			"info": "शब्दात्मक और विचलित दूसरों, अत्यधिक विश्लेषणात्मक दृष्टिकोण",
+			"date":"23 अगस्त - 22 सितम्बर",
+			"aliments": "सामान्य ठंड और मनोवैज्ञानिक एलीमेंट",
+			"pressurepoints": ["4", "9", "10", "21", "27", "31"]
+		},
+		"तुला": {
+			"info": "प्रकृति द्वारा राजनीतिज्ञ",
+			"aliments": "थायराइड, गले और पाचन तंत्र के आलिंद",
+			"date":"23 सितम्बर - 22 अक्टूबर",
+			"pressurepoints": ["9", "10", "21", "28a", "28b"]
+		},
+		"वृश्चिक": {
+			"info": "कठिन परिस्थितियों में चीजों को धीमा करना, साहस करना, स्थिर करना",
+			"date":"23 अक्टूबर - 21 नवम्बर",
+			"aliments": "कमर और पीठ में दर्द, त्वचा और पाचन तंत्र के पेटेंट ",
+			"pressurepoints": ["9", "10", "16", "16a", "28a", "28b"]
+		},
+		"धनु": {
+			"info": "कायर, धृष्ट और स्वभाव से भावनात्मक",
+			"date":"22 नवम्बर - 21 दिसम्बर",
+			"aliments": "पीठ और कमर, त्वचा और पाचन तंत्र के पेटेंट में दर्द",
+			"pressurepoints": ["9", "10", "16","16a", "28a", "28b"]
+		},
+		"मकर": {
+			"info": "स्वादिष्ट खाने वालों, आलसी और भुलक्कड़",
+			"date":"22 दिसम्बर - 19 जनवरी",
+			"aliments": "संक्रमण के कारण खाद्यान्न",
+			"pressurepoints": ["9", "10", "28a", "28b"]
+		},
+		"कुंभ": {
+			"info": "संदिग्ध प्रकृति, विश्लेषणात्मक और जांच करने वाला स्वभाव पर, आरक्षित (भावनाओं को व्यक्त नहीं करना)",
+			"date":"20 जनवरी - 18 फरवरी",
+			"aliments": "आम ठंड, मोटापा, मनोवैज्ञानिक एलीमेंट",
+			"pressurepoints": ["9", "10", "21", "27", "31"]
+		},
+		"मीन": {
+			"info": "चीजों को लंबे समय तक ध्यान में रखते हुए, एक खुद के खोल में, स्थिरता में रहना",
+			"date":"19 फरवरी - 20 मार्च",
+			"aliments": "अम्लता, पुरुषों में लत, मनोवैज्ञानिक समस्याओं का बढ़ना और घुटने के जोड़ों में दर्द",
+			"pressurepoints": ["4", "16", "16a", "28a", "28b", "33", "34", "35"]
+		}
+	},
+	"points": {
+		"1": {
+			"title": "Little toe",
+			"description": "<p>थोड़ा पैर की अंगुली एक ऊर्जा केंद्र है जब लाइट पैर दबाया जाता है, शरीर को गर्मी का आरोप लगाया जाता है और हम तुरंत ऊर्जा प्राप्त करते हैं। जब कोई व्यक्ति अधिकाधिक थका हुआ हो जाता है या बेहोश हो जाता है तब यह उपयोगी होता है।</p>",
+			"associated_with": ["ऊर्जा केंद्र", "ऊर्जा", "थका हुआ", "बेहोश"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "64, 121, 71, 124, 77, 130, 80, 137, 81, 148, 73, 145, 68, 138, 65, 130"
+				}, {
+					"type": "poly", 
+					"value": "42, 136, 46, 129, 50, 126, 54, 123, 54, 132, 53, 141, 51, 148, 47, 152, 42, 156, 41, 148, 40, 142"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "348,100,357,110,361,122,360,134,350,125,346,112"
+				}, {
+					"type": "poly", 
+					"value": "335,97,324,105,319,116,319,124,330,116,336,107"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "23,143,27,149,27,159,23,168,18,174,18,154"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "370,126,375,138,376,152,369,145,367,134"
+				}]
+			}]
+		},
+		"2": {
+			"title": "The web between the little toe and the fourth toe",
+			"description": "<p>जब इस वेब पर दबाव लागू होता है, तो कान स्वस्थ रहता है।</p>",
+			"associated_with": ["कान", "कान ड्रम"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "93, 187, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "305,161,13"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "79,283,18"
+				}, {
+					"type": "poly", 
+					"value": "48,142,46,156,49,165,57,171,55,155"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "318,257,14"
+				}, {
+					"type": "poly", 
+					"value": "346,126,349,134,348,144,339,152,340,135"
+				}]
+			}]
+		},
+		"3": {
+			"title": "Web between the fourth and third(middle) toe and the fourth toe",
+			"description": "इस वेब पर दबाव डालने के साथ-साथ चौथी पैर की अंगूठी अच्छी आंखों में आँखों को बनाए रखने में मदद करती है और चश्मा का प्रयोग करने से रोकती है",
+			"associated_with": ["आंख", "नज़र", "चश्मा", "दृष्टि"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "131, 157, 13"
+				}, {
+					"type": "poly", 
+					"value": "91, 72, 84, 82, 79, 94, 81, 110, 90, 100, 94, 85"
+				}, {
+					"type": "poly", 
+					"value": "103, 70, 104, 81, 109, 91, 121, 101, 118, 83"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "263,132,13"
+				}, {
+					"type": "poly", 
+					"value": "306,49,317,62,320,74,318,85,307,76,303,62"
+				}, {
+					"type": "poly", 
+					"value": "291,47,293,56,290,67,280,75,272,79,277,59"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "214,258,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "184,229,15"
+				}]
+			}]
+		},
+		"4": {
+			"title": "Third toe",
+			"description": "मनोवैज्ञानिक संतुलन बनाए रखने के परिप्रेक्ष्य से यह एक बहुत ही महत्वपूर्ण अंग है। रक्त के दबाव, मधुमेह जैसे दिमाग से संबंधित रोगों से छुटकारा पाने के लिए इस पैर पर दबाव डालें और अवसाद, पागलपन, वासना और ईर्ष्या जैसे अन्य मनोवैज्ञानिक रोगों को कम करने के लिए। किसी भी चोट और रक्तस्राव को रोकने के लिए यह पैर की अंगुली महत्वपूर्ण है।",
+			"associated_with": ["मनोवैज्ञानिक स्वस्थ्य", "रक्त चाप", "मधुमेह", "रक्तस्राव रोकें", "मानसिक अस्थिरता", "मन", "डिप्रेशन", "पागलपन", "हवस", "ईर्ष्या द्वेष"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "149, 38, 150, 51, 157, 64, 166, 70, 166, 56, 159, 44"
+				}, {
+					"type": "poly", 
+					"value": "135, 40, 127, 52, 124, 67, 125, 78, 136, 65, 139, 54"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "257, 20, 266, 27, 270, 35, 273, 45, 272, 56, 263, 50, 257, 40"
+				}, {
+					"type": "poly", 
+					"value": "244,20,243,35,237,45,227,51,229,34"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "92,53,94,67,91,79,82,87,83,70"
+				}, {
+					"type": "poly", 
+					"value": "115,54,114,70,117,80,124,87,123,70"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "304,49,310,58,313,70,313,76,303,66,301,55"
+				}, {
+					"type": "poly", 
+					"value": "281,50,284,57,281,70,273,78,274,65,276,56"
+				}]
+			}]
+		},
+		"5": {
+			"title": "Web between third and the second toe",
+			"description": "दबाव को लागू करने से शरीर प्रतिरोध बढ़ जाता है इस बिंदु पर दबाव लागू करें जब भी कोई संक्रमण होता है",
+			"associated_with": ["ऊर्जा जो रोग को रोकती है", "रोगों को रोकना", "संक्रमण", "प्रतिरक्षा में सुधार"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "175, 135, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "216,114,13"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "142,262,19"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "257,237,15"
+				}]
+			}]
+		},
+		"6": {
+			"title": "Second toe",
+			"description": "यह बिंदु गर्दन और नाक के साथ जुड़ा हुआ है",
+			"associated_with": ["गरदन", "नाक", "गर्दन में अकड़न"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "198, 74, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "191,55,15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "163,15,166,29,162,40,154,48,155,31"
+				}, {
+					"type": "poly", 
+					"value": "187,15,195,28,197,43,197,48,186,37,185,22"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "237,17,243,25,246,42,237,35,235,25"
+				}, {
+					"type": "poly", 
+					"value": "215,17,218,26,207,43,208,28"
+				}]
+			}]
+		},
+		"7": {
+			"title": "Second toe",
+			"description": "यह बिंदु नाक के करीब साइनस के साथ जुड़ा हुआ है",
+			"associated_with": ["साइनस", "नाक के करीब साइनस", "साइनस का सिरदर्द"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "190, 17, 177, 32, 174, 49, 174, 58, 187, 51, 194, 32"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "201,4,214,12,219,24,220,35,220,39,203,30,200,14"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "240,52,242,65,237,77,228,85,232,62"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "166,46,175,56,177,66,177,74,166,63,163,51"
+				}]
+			}]
+		},
+		"8": {
+			"title": "Second toe",
+			"description": "यह बिंदु आंखों के करीब साइनस के साथ जुड़ा हुआ है।",
+			"associated_with": ["साइनस", "आँखों के करीब साइनस", "साइनस का सिरदर्द"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "205, 14, 205, 30, 207, 42, 222, 56, 224, 39, 217, 24"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "187,3,188,19,182,33,170,40,171,19"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "263,54,271,68,273,87,261,76,260,59"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "145,48,147,60,144,70,135,76,136,63"
+				}]
+			}]
+		},
+		"9": {
+			"title": "Web between the second toe and the big toe",
+			"description": "यह बिंदु गले संबंधित समस्याओं से जुड़ा हुआ है।",
+			"associated_with": ["गला", "गले में खरास", "गले खुजली"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "218, 140, 11"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "170,116,13"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "263,349,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "134,316,15"
+				}]
+			}]
+		},
+		"10": {
+			"title": "Web between the second toe and the big toe",
+			"description": "इस बिंदु टॉन्सिल संबंधित समस्याओं के साथ जुड़ा हुआ है।",
+			"associated_with": ["टॉन्सिल"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "237, 142, 11"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "150,122,13"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "280,355,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "117,325,16"
+				}]
+			}]
+		},
+		"11": {
+			"title": "Big toe",
+			"description": "बड़े पैर की अंगुली सिर के साथ जुड़ा हुआ है। अपने भीतर की तरफ, दूसरे पैर के अंगूठे की ओर जिसका अर्थ है, वहाँ मंदिर, कान और गलसुआ के साथ जुड़े बिंदु हैं।",
+			"associated_with": ["कनपटी", "कान", "कण्ठमाला का रोग", "सिर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "238, 29, 246, 46, 245, 67, 239, 79, 229, 84, 229, 60, 232, 41"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "155,18,147,33,146,46,149,59,161,68,164,42"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "346,231,341,248,327,262,317,266,330,245"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "56,203,73,219,83,235,68,229,59,216"
+				}]
+			}]
+		},
+		"12": {
+			"title": "Big toe",
+			"description": "यह बिंदु नेत्रगोलक की मांसपेशियों के साथ जुड़ा हुआ है यह उन लोगों के लिए सहायक होता है जो भोले-आंखों वाले हैं",
+			"associated_with": ["नेत्र मांसल", "आंख", "स्क्वंट आंख", "नेत्रगोलक"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "246, 25, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "144,16,15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "354,231,14"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "48,204,14"
+				}]
+			}]
+		},
+		"13": {
+			"title": "Big toe",
+			"description": "बड़ी पैर की बाहों की बाहरी ओर गर्भाशय ग्रीवा स्पोंडिलोसिस से जुड़े अंक हैं।",
+			"associated_with": ["गर्दन संबंधी स्पोंडिलोसिस", "स्पोंडिलोसिस", "वक्रित"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "287, 11, 297, 30, 303, 54, 304, 86, 298, 109, 293, 122, 304, 127, 313, 97, 317, 65, 312, 41, 298, 17"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "106,7,94,37,89,60,92,89,97,107,85,111,79,83,77,58,85,30"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "376,233,365,250,356,272,350,295,352,310,356,313,368,275,379,246"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "26,204,35,215,45,239,48,265,45,277,40,283,32,243,24,219"
+				}]
+			}]
+		},
+		"14": {
+			"title": "Big toe",
+			"description": "यह बिंदु पीनियल और पिट्यूटरी ग्रंथियों के साथ जुड़ा हुआ है। अनिद्रा जैसे रोगों में, गर्दन में दर्द, इस बिंदु पर दबाव लागू होते हैं",
+			"associated_with": ["पीनियल ग्रंथि", "पीयूष ग्रंथियां", "नींद", "पीनियल", "पीयूष", "अनिद्रा", "गरदन"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "302, 59, 316, 57, 315, 86, 303, 86"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "77,48,89,48,89,75,76,74"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "361,257,372,262,362,291,351,286"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "40,227,47,255,35,259,28,231"
+				}]
+			}]
+		},
+		"15": {
+			"title": "Big toe",
+			"description": "बड़ी पैर की हड्डी की जड़ (जहां यह पैर में मिलती है) गर्दन से भी जुड़ा हुआ है",
+			"associated_with": ["गर्दन के जोड़", "गरदन"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "267, 129, 13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "121,115,14"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "310,352,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "84,321,18"
+				}]
+			}]
+		},
+		"16": {
+			"title": "Mound between the second and the third toe",
+			"description": "यह बिंदु फेफड़े और थाइमस ग्रंथियों से जुड़ा हुआ है यह बिंदु 12 वर्ष तक के बच्चों की सभी बीमारियों में सहायक है। इस बिंदु को भगवान का कहना है",
+			"associated_with": ["थाइमस ग्रंथियों", "फेफड़े", "थाइमस"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "176, 240, 11"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "215,218,16"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "214,333,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "182,304,17"
+				}]
+			}]
+		},
+		"16a": {
+			"title": "Mound between the second and the third toe",
+			"description": "यह बिंदु पिटा से संबंधित बीमारी के साथ भी सूखी खांसी में भी जुड़ा हुआ है।",
+			"associated_with": ["पित्त"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "176, 258, 12"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "214,239,16"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "188,359,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "208,331,16"
+				}]
+			}]
+		},
+		"17": {
+			"title": "Below fifth toe",
+			"description": "यह बिंदु कंधे के बाहरी भाग से जुड़ा हुआ है।",
+			"associated_with": ["कंधे के बाहरी भाग", "कंधा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "52, 211, 57, 215, 61, 224, 64, 238, 64, 258, 62, 275, 56, 283, 45, 285, 45, 259, 46, 238"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "350,187,342,196,338,231,344,255,351,264,359,265,359,219"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "28,336,35,343,44,365,44,388,39,407"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "370,311,367,352,364,380,357,367,357,336,361,317"
+				}]
+			}]
+		},
+		"18": {
+			"title": "Below fifth toe",
+			"description": "यह बिंदु कंधे के आंतरिक भाग से जुड़ा हुआ है।",
+			"associated_with": ["कंधे के अंदरूनी हिस्से", "कंधा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "300, 160, 303, 179, 306, 210, 304, 240, 298, 266, 290, 285, 284, 279, 282, 248, 286, 200, 289, 178"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "87,142,96,154,101,186,102,222,100,255,93,269,80,231,79,188,85,157"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "339,372,329,406,323,420,314,435,316,404,327,382"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "54,339,69,358,77,385,77,405,75,409,66,391,57,355"
+				}]
+			}]
+		},
+		"19": {
+			"title": "Shoulder blade",
+			"description": "यह बिंदु कंधे की हड्डी के साथ जुड़ा हुआ है",
+			"associated_with": ["कंधे की हड्डी", "कंधे की हड्डी", "कंधा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "220, 156, 214, 184, 213, 197, 214, 226, 216, 238, 218, 253, 217, 252, 212, 183"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "168,134,177,167,177,197,170,233,176,204,177,172"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "181,386,171,423,167,451,169,495,166,456,172,416"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "214,356,223,379,228,406,231,444,229,416,225,385"
+				}]
+			}]
+		},
+		"20": {
+			"title": "Point 20",
+			"description": "यह बिंदु पेट से जुड़ा हुआ है",
+			"associated_with": ["पेट"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "256, 311, 26"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "121,293,28"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "248,386,13"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "146,358,14"
+				}]
+			}]
+		},
+		"21": {
+			"title": "point 21",
+			"description": "यह बिंदु थायराइड ग्रंथियों के साथ जुड़ा हुआ है",
+			"associated_with": ["थायराइड ग्रंथियों", "थायराइड"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "227, 283, 15"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "157,265,16"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "198,422,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "196,397,18"
+				}]
+			}]
+		},
+		"22": {
+			"title": "Point 22",
+			"description": "यह बिंदु गुर्दे के साथ जुड़ा हुआ है",
+			"associated_with": ["गुर्दे"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "174, 285, 15"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "215,266,17"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "166,475,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "229,456,16"
+				}]
+			}]
+		},
+		"23a": {
+			"title": "Point 23A",
+			"description": "यह बिंदु जिगर के साथ जुड़ा हुआ है (दाहिनी हथेली पर)",
+			"associated_with": ["जिगर (दाहिने हथेली पर)", "जिगर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "91, 285, 19"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "85,392,19"
+				}]
+			}]
+		},
+		"23b": {
+			"title": "Point 23B",
+			"description": "यह बिंदु दिल से जुड़ा हुआ है (बाईं हथेली पर)",
+			"associated_with": ["दिल(बाईं हथेली पर)", "दिल"],
+			"images": [{
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "310,264,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "316,365,18"
+				}]
+			}]
+		},
+		"24": {
+			"title": "24",
+			"description": "यह बिंदु अग्न्याशय से जुड़ा हुआ है",
+			"associated_with": ["अग्न्याशय"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "102,322,15"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "296,306,17"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "204,368,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "192,342,18"
+				}]
+			}]
+		},
+		"25": {
+			"title": "Point 25",
+			"description": "यह बिंदु शरीर का ऊर्जा केंद्र है यह एक टॉरेज बैटरी के साथ तुलना की जा सकती है। इस उपकरण को ठीक से काम करने के लिए, बैटरी को पर्याप्त रूप से चार्ज किया जाना चाहिए, शरीर के ठीक से काम करने के लिए इसी तरह की, यह ऊर्जा केंद्र अच्छी हालत में होना चाहिए।",
+			"associated_with": ["ऊर्जा केंद्र", "ऊर्जा"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "101,397,13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "298,389,15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "117,432,18"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "282,403,19"
+				}]
+			}]
+		},
+		"26": {
+			"title": "Point 26",
+			"description": "यह बिंदु पैरों के घुटनों और पैरों की नसों से जुड़ा हुआ है।",
+			"associated_with": ["घुटनों", "पैरों की नसों"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "130,406,14"
+				}, {
+					"type": "circle", 
+					"value": "175,406,17"
+				}, {
+					"type": "circle", 
+					"value": "229,407,16"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "152,398,19"
+				}, {
+					"type": "circle", 
+					"value": "211,400,20"
+				}, {
+					"type": "circle", 
+					"value": "263,400,20"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "79,313,17"
+				}, {
+					"type": "circle", 
+					"value": "139,297,18"
+				}, {
+					"type": "circle", 
+					"value": "211,290,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "189,262,16"
+				}, {
+					"type": "circle", 
+					"value": "256,273,16"
+				}, {
+					"type": "circle", 
+					"value": "319,287,17"
+				}]
+			}]
+		},
+		"27": {
+			"title": "Point 27",
+			"description": "यह बिंदु अधिवृक्क ग्रंथियों के साथ जुड़ा हुआ है",
+			"associated_with": ["अधिवृक्क ग्रंथियों", "अधिवृक्क"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "249, 380, 14"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "130, 368, 15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "200,233,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "200,233,15"
+				}]
+			}]
+		},
+		"28a": {
+			"title": "Point 28A",
+			"description": "यह बिंदु पित्ताशय के साथ जुड़ा हुआ है (दाहिनी हथेली पर)",
+			"associated_with": ["पित्ताशय(दाहिनी हथेली पर)", "पित्ताशय"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "102, 477, 15"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "89,471,18"
+				}]
+			}]
+		},
+		"28b": {
+			"title": "Point 28B",
+			"description": "यह बिंदु तिल्ली (बाईं हथेली पर) के साथ जुड़ा हुआ है।",
+			"associated_with": ["तिल्ली(बाईं हथेली पर)", "तिल्ली"],
+			"images": [{
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "297,478,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "309,449,17"
+				}]
+			}]
+		},
+		"29": {
+			"title": "Point 29",
+			"description": "यह बिंदु बड़ी आंतों के साथ जुड़ा हुआ है",
+			"associated_with": ["बड़ी आतें"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "174,515,16"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "208,525,29"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "257,449,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "133,425,16"
+				}]
+			}]
+		},
+		"30": {
+			"title": "Point 30",
+			"description": "यह बिंदु छोटी आंतों के साथ जुड़ा हुआ है।",
+			"associated_with": ["छोटी आतें"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "232,516,13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "149,526,22"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "271,420,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "121,393,16"
+				}]
+			}]
+		},
+		"31": {
+			"title": "Point 31",
+			"description": "यह बिंदु कमर से जुड़ा हुआ है।",
+			"associated_with": ["कमर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "254,515,13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "118,524,21"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "250,484,14"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "140,462,18"
+				}]
+			}]
+		},
+		"32": {
+			"title": "Point 32",
+			"description": "यह बिंदु घुटने, टखने की हड्डी और कमर के बाहरी भाग से जुड़ा हुआ है।",
+			"associated_with": ["कमर के बाहरी भाग", "घुटने", "टखने की हड्डी", "टखने", "कमर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "78,523,95,547,106,577,109,612,110,633,106,650,88,625,79,598,76,564"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "328,538,309,568,296,608,291,650,296,701,323,659,332,612,330,570"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "54,480,63,485,72,498,79,517,80,528,76,539"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "348,462,341,490,336,502,327,525,322,512,327,488,335,471"
+				}]
+			}]
+		},
+		"33": {
+			"title": "Point 33",
+			"description": "यह बिंदु मूत्र पथ, कमर, टखने की हड्डी और घुटने के भीतर की ओर से जुड़ा हुआ है।",
+			"associated_with": ["मूत्र", "मूत्र पथ", "कमर", "Inner side of the knee", "घुटने", "टखने की हड्डी", "टखने"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "257,520,238,548,231,580,227,616,234,652,252,621,258,579,259,537"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "117,530,131,548,147,597,149,637,143,701,123,668,115,623"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "249,536,250,525,257,509,268,498,279,491,284,491,260,525,255,528"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "104,468,123,480,136,499,140,513,139,521,130,508"
+				}]
+			}]
+		},
+		"34": {
+			"title": "Point 34",
+			"description": "यह बिंदु कैंसर, संक्रमण और रक्तस्राव के साथ जुड़ा हुआ है।",
+			"associated_with": ["कैंसर", "संक्रमण", "रक्तस्राव"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "229,651,13"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "145,693,14"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "178,516,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "215,499,19"
+				}]
+			}]
+		},
+		"35": {
+			"title": "Point 35",
+			"description": "यह बिंदु कैंसर, गुदा रोग और बवासीर के साथ जुड़ा हुआ है",
+			"associated_with": ["कैंसर", "गुदा रोग", "गुदा", "बवासीर"],
+			"images": [{
+				"path": "./img/points/right_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "109,654,138,644,169,642,192,644,208,647,229,656,203,675,176,680,124,666,123,666"
+				}]
+			}, {
+				"path": "./img/points/left_sole.jpg",
+				"coords": [{
+					"type": "poly", 
+					"value": "291,704,256,692,207,686,171,692,144,703,165,721,192,735,217,738,250,734,279,718"
+				}]
+			}, {
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "178,516,16"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "215,499,19"
+				}]
+			}]
+		},
+		"36": {
+			"title": "Point 36",
+			"description": "यह बिंदु वृषण और अंडाशय के साथ जुड़ा हुआ है।",
+			"associated_with": ["वृषण", "अंडाशय"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "92,586,18"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "310,583,18"
+				}]
+			}]
+		},
+		"37": {
+			"title": "Point 37",
+			"description": "यह बिंदु प्रोस्टेट ग्रंथि के साथ जुड़ा हुआ है",
+			"associated_with": ["प्रोस्टेट ग्रंथि", "प्रोस्टेट"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "235,550,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "153,539,14"
+				}]
+			}]
+		},
+		"38": {
+			"title": "Point 38",
+			"description": "यह बिंदु गर्भाशय के साथ जुड़ा हुआ है",
+			"associated_with": ["गर्भाशय"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "232,573,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "153,565,13"
+				}]
+			}]
+		},
+		"39": {
+			"title": "Point 39",
+			"description": "यह बिंदु लिंग के साथ जुड़ा हुआ है",
+			"associated_with": ["लिंग"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "234,597,15"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "152,590,13"
+				}]
+			}]
+		},
+		"40": {
+			"title": "Point 40",
+			"description": "यह बिंदु मूत्र पथ के साथ जुड़ा हुआ है।",
+			"associated_with": ["मूत्र पथ", "मूत्र"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "233,618,17"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "153,616,15"
+				}]
+			}]
+		},
+		"41": {
+			"title": "Point 41",
+			"description": "यह बिंदु वात के साथ जुड़ा हुआ है",
+			"associated_with": ["वात"],
+			"images": [{
+				"path": "./img/points/right_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "237, 510, 13"
+				}]
+			}, {
+				"path": "./img/points/left_palm.jpg",
+				"coords": [{
+					"type": "circle", 
+					"value": "153,493,14"
+				}]
+			}]
+		}
+	}
+}

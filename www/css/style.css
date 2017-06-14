@@ -275,3 +275,19 @@ input::-webkit-input-placeholder {
 .zodiac-content-wrapper p span.bold{
   text-decoration: underline;
 }
+
+.card-error {
+  color: #ef473a;
+  padding: 20px;
+  text-align: center;
+  margin: 50% 0;
+  line-height: 1.6rem;
+  font-size: 1.2rem;
+  border: 1px solid #ef473a;
+}
+
+.copyright {
+  font-style: italic;
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
