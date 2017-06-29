@@ -16,6 +16,10 @@ body {
 .custom-nav {
   height: 60px !important;
 }
+.contact-doc-button:before {
+  font-size: 2.2rem !important;
+  line-height: 2.8rem !important;
+}
 .container-bg {
   top: 60px !important;
 }
@@ -23,11 +27,11 @@ body {
   padding: 3%;
 }
 .platform-android .bar .title, .bar .title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: normal;
   line-height: 1;
   height: 100%;
-  top: 14px;
+  top: 16px;
   text-align: center;
 }
 

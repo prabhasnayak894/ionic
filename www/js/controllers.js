@@ -1,5 +1,5 @@
 angular.module('starter.controllers', [])
-	.controller('AppCtrl', function($scope, $ionicModal, $timeout, $cordovaSocialSharing, $ionicModal) {
+	.controller('AppCtrl', function($scope, $state, $ionicModal, $timeout, $cordovaSocialSharing, $ionicModal, $ionicActionSheet) {
 
 		// With the new view caching in Ionic, Controllers are only called
 		// when they are recreated or on app start, instead of every page change.
@@ -7,8 +7,30 @@ angular.module('starter.controllers', [])
 		// listen for the $ionicView.enter event:
 		//$scope.$on('$ionicView.enter', function(e) {
 		//});
+
+		$ionicModal.fromTemplateUrl('promote-app.html', {
+			scope: $scope,
+			animation: 'slide-in-up'
+		}).then(function(modal) {
+			$scope.modal_promote = modal;
+		});
+		$scope.openPromoteModal = function() {
+			$scope.modal_promote.show();
+		};
+		$scope.closePromoteModal = function() {
+			$scope.modal_promote.hide();
+		};
+
+		$scope.share_message = "This app allowed  me to understand Acupressure and how to use it to get immediate relief from my health issues.";
+		$scope.share_title = 'Acupressure Android App';
+		$scope.playstore_url = 'https://play.google.com/store/apps/details?id=com.ionicframework.accupressure953650';
+		
 		$scope.share = function() {
-			$cordovaSocialSharing.share('This app allowed  me to understand Acupressure and how to use it to get immediate relief from my health issues.', 'Acupressure App', null, 'https://play.google.com/store/apps/details?id=com.ionicframework.accupressure953650');
+			$cordovaSocialSharing.share($scope.share_message, $scope.share_title, null, $scope.playstore_url);
+		};
+
+		$scope.rate_it = function() {
+			window.open('market://details?id=com.ionicframework.accupressure953650', '_system');
 		};
 
 		$scope.langs = [{
@@ -43,9 +65,25 @@ angular.module('starter.controllers', [])
 			$scope.modal_lang.hide();
 			$scope.$broadcast('change_lang', true)
 		};
+
+		$scope.openContactActionsheet = function() {
+			var hideSheet = $ionicActionSheet.show({
+				buttons: [
+					{ text: 'Form', state: 'app.contact_form' },
+					//{ text: 'Audio', state: 'app.contact_audio' },
+					//{ text: 'Video', state: 'app.contact_video' }
+				],
+				titleText: 'Connect with our expert',
+				cancelText: 'Exit, May be later.',
+				buttonClicked: function(index, data) {
+					$state.go(data.state);
+					return true;
+				}
+			});
+		};
 	})
 
-	.controller('LinksCtrl', function($scope, $ionicScrollDelegate, $ionicModal, $location, $ionicPush, $http){
+	.controller('LinksCtrl', function($scope, $ionicScrollDelegate, $ionicModal, $location, $http){
 		
 		$scope.getData = function(){
 			$http.get('./js/content/links/content_' + $scope.lang + '.json')
@@ -65,11 +103,6 @@ angular.module('starter.controllers', [])
 		$scope.goToPage = function(link) {
 			$location.path("app/" + link);
 		};
-
-		$scope.$on('cloud:push:notification', function(event, data) {
-			var msg = data.message;
-			alert(msg.title + ': ' + msg.text);
-		});
 
 		var three_perc_div = (3 / window.innerHeight) * 100
 		var height_div = (window.innerHeight - 110) - (three_perc_div * 2)
@@ -377,6 +410,17 @@ angular.module('starter.controllers', [])
 
 		$scope.getData(false);
 
+	})
+
+	.controller('ContactFormCtrl', function($scope){
+		inAppPurchase
+			.getProducts(['test'])
+			.then(function (products) {
+				$scope.products = products;
+			})
+			.catch(function (err) {
+				$scope.err = err;
+			});
 	})
 
 	.directive('mapHighlight', ['$timeout', function($timeout) {
